@@ -4,6 +4,7 @@
     "dotenv": "^16.3.1",
     "instagram-graph-api": "^5.0.1",
     "openai": "^4.16.2",
-    "sharp": "^0.32.6"
+    "sharp": "^0.32.6",
+    "simple-git": "^3.20.0"
   }
 }
