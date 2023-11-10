@@ -4,7 +4,10 @@ const { generateImage } = require("./createImageFromAPrompt");
 const { generatePrompt } = require("./chatgpt_model4");
 const axios = require('axios');
 const fs = require('fs');
+const sharp = require('sharp');
+const path = require('path');
 const { url } = require("inspector");
+
 require('dotenv').config();
 
 const openai = new OpenAI({
@@ -39,7 +42,8 @@ async function generatePromptForDALLE(post = "", color = "green", style = "high 
 
 async function generateImagesFromPrompt(id = "", post = "", color = "green", style = "hiper realistic with high resolution") {
     console.log(`...Start generating Images...`)
-  
+    let filePath = "./imagenes/";
+    let pngFolder = './imagenes/png';
     let image;
     let prompt = await generatePromptForDALLE(post, color, style);
     
@@ -61,10 +65,34 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
     console.log("Imagen: ")
     console.log(image)
     console.log("...Guardando imagen...")
-    downloadImage(image , `./imagenes/${id}.jpg`)
+    downloadImage(image , `${filePath}${id}.png`)
         .then(() => console.log('Imagen descargada con éxito.'))
         .catch(err => console.error('Error al descargar la imagen:', err));
-  
+      
+    // Convertir PNG a JPG
+    sharp(`${filePath}${id}.png`)
+    .toFormat('jpeg')
+    .toFile(`${filePath}${id}.jpg`)
+    .then(() => {
+      console.log('Conversión completada');
+
+      // Crear la carpeta ./imagenes/png si no existe
+      if (!fs.existsSync(pngFolder)){
+        fs.mkdirSync(pngFolder, { recursive: true });
+      }
+
+      // Mover el archivo PNG original a la carpeta ./imagenes/png
+      let oldPath = `${filePath}${id}.png`;
+      let newPath = path.join(pngFolder, `${id}.png`);
+      fs.rename(oldPath, newPath, (err) => {
+        if (err) throw err;
+        console.log(`El archivo PNG ha sido movido a ${newPath}`);
+      });
+    })
+    .catch(err => {
+      console.error('Error al convertir la imagen', err);
+    });
+
 }
 
 
@@ -85,6 +113,9 @@ async function downloadImage(url, imagePath) {
     writer.on('error', reject);
   });
 }
+
+
+
 
 exports.generateImagesFromPrompt = generateImagesFromPrompt
 

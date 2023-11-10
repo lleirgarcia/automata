@@ -3,6 +3,7 @@
     "axios": "^1.6.1",
     "dotenv": "^16.3.1",
     "instagram-graph-api": "^5.0.1",
-    "openai": "^4.16.2"
+    "openai": "^4.16.2",
+    "sharp": "^0.32.6"
   }
 }
