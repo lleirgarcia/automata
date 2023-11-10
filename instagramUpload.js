@@ -40,7 +40,7 @@ async function uploadPost(containerId) {
 }
 
 async function main() {
-    pushImagesToRepo();
+    await pushImagesToRepo();
     try {
         const postData = await fs.readFile(jsonFilePath, 'utf8');
         const posts = JSON.parse(postData);
@@ -48,9 +48,7 @@ async function main() {
         for (const tema of posts) {
             for (const subtema of tema.subtemas) {
                 for (const post of subtema.posts) {
-                    const imageUrl = `https://raw.githubusercontent.com/lleirgarcia/automata/main/imagenes/${post.id}.png`; // Asumiendo que la imagen tiene el mismo ID que el post y es un archivo PNG
-                    console.log("eaaaa")
-                    console.log(imageUrl)
+                    const imageUrl = `https://raw.githubusercontent.com/lleirgarcia/automata/main/imagenes/${post.id}.jpg`; // Asumiendo que la imagen tiene el mismo ID que el post y es un archivo PNG
                     const containerId = await createContainer(imageUrl, post.content);
                     await uploadPost(containerId);
                 }
