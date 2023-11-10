@@ -1,1 +1,28 @@
-// cuando genero las imagenes, he de subir el codigo antes que subir las imagenes a instagram
+const simpleGit = require('simple-git');
+const git = simpleGit();
+
+const commitMessage = 'Add images to repo.';
+
+async function pushImagesToRepo() {
+    try {
+        // Verificar el estado del repositorio
+        const status = await git.status();
+        console.log(status);
+
+        // Añadir archivos al staging area
+        await git.add('./*');
+        console.log('Archivos añadidos');
+
+        // Realizar el commit
+        await git.commit(commitMessage);
+        console.log('Commit realizado');
+
+        // Empujar los cambios
+        await git.push('origin', 'develop'); // Asegúrate de cambiar 'master' por el nombre de tu rama si es diferente
+        console.log('Cambios empujados al repositorio');
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+exports.pushImagesToRepo = pushImagesToRepo

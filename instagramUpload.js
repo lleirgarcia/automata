@@ -1,5 +1,6 @@
 const axios = require('axios');
 const fs = require('fs').promises;
+const { pushImagesToRepo } = require("./uploadCodeToRepo");
 require('dotenv').config();
 
 const igUserId = process.env.ONLYHABITS_ID;
@@ -39,6 +40,7 @@ async function uploadPost(containerId) {
 }
 
 async function main() {
+    pushImagesToRepo();
     try {
         const postData = await fs.readFile(jsonFilePath, 'utf8');
         const posts = JSON.parse(postData);
