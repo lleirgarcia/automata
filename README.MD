@@ -12,6 +12,9 @@
     - [] Jenkins Docker en local siempre levantado
 - [] lo mismo de instagram, para twitter
 
+- [] subir las imagenes a un aws o por el estilo https://aws.amazon.com/es/s3/
+    - luego de alli tenerlas disponibles
+
 
 
 - [] ideas.
