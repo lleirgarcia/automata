@@ -52,7 +52,7 @@ async function generateStory(theme, subtheme) {
  * Construye el objeto de resultados basado en los temas y subtemas.
  * @returns {Promise<void>}
  */
-async function buildTopicSubtopicObject(qttPosts, filePath) {
+async function generatePostsWithTextAndImages(qttPosts, filePath) {
     try {
         const data = await fs.readFile(filePath, 'utf8');
         const temas = JSON.parse(data);
@@ -97,11 +97,11 @@ async function buildTopicSubtopicObject(qttPosts, filePath) {
 
 // Función principal que se ejecuta al iniciar el script
 async function main(filePath, postNumberBySubTopic) {
-    await buildTopicSubtopicObject(postNumberBySubTopic, filePath);
+    await generatePostsWithTextAndImages(postNumberBySubTopic, filePath);
 }
 
-const jsonFilePath = process.argv[2] || 'bydefectJSONExample.json';
-const postNumberBySubTopic = process.argv[3] || 1;
+const jsonFilePath = process.argv[2] || 'topicsandsubtopics.json';
+const postNumberBySubTopic = process.argv[3] || process.env.NUM_POSTS_PER_TOPIC;
 
 // Manejo de errores en la función principal
 main(jsonFilePath, postNumberBySubTopic).catch(console.error)

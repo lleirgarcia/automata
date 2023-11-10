@@ -44,21 +44,24 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
     let prompt = await generatePromptForDALLE(post, color, style);
     
     console.log(`---From prompt: ${prompt}`)
-    // image = await generateImage(prompt) // comentar pq sino esto perdera muchos tokens y me valdrá bastante pasta.
-    console.log("Imagen: ")
-    console.log(image)
-    image = {
-      created: 1699553319,
-      data: [
-        {
-          revised_prompt: 'An open self-help book showcasing the steps to set and follow goals, surrounded by colorful pencils, a written goal list, and a coffee cup. The color scheme of the image should be green, with a dark green marble background. The image should be high-resolution and of high quality.',
-          url: 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-G0SaRXS9TvdcEeUmV4i6snDR/user-65IiMGTl5V05UdgD1Ypj92My/img-wjlj6mLJ5SZORNdMNusqVsRu.png?st=2023-11-09T17%3A13%3A38Z&se=2023-11-09T19%3A13%3A38Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-11-09T06%3A55%3A34Z&ske=2023-11-10T06%3A55%3A34Z&sks=b&skv=2021-08-06&sig=RDGfRnAXtleZtaFhLOmaiB1mRplzwBaanp/k5yjA6xo%3D'
-        }
-      ]
+    if(process.env.IMAGE_GEN_ACTIVE) {
+      image = await generateImage(prompt) // comentar pq sino esto perdera muchos tokens y me valdrá bastante pasta.
+    } else {
+      // image = {
+      //   created: 1699553319,
+      //   data: [
+      //     {
+      //       revised_prompt: 'An open self-help book showcasing the steps to set and follow goals, surrounded by colorful pencils, a written goal list, and a coffee cup. The color scheme of the image should be green, with a dark green marble background. The image should be high-resolution and of high quality.',
+      //       url: 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-G0SaRXS9TvdcEeUmV4i6snDR/user-65IiMGTl5V05UdgD1Ypj92My/img-wjlj6mLJ5SZORNdMNusqVsRu.png?st=2023-11-09T17%3A13%3A38Z&se=2023-11-09T19%3A13%3A38Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-11-09T06%3A55%3A34Z&ske=2023-11-10T06%3A55%3A34Z&sks=b&skv=2021-08-06&sig=RDGfRnAXtleZtaFhLOmaiB1mRplzwBaanp/k5yjA6xo%3D'
+      //     }
+      //   ]
+      // }
     }
       
+    console.log("Imagen: ")
+    console.log(image)
     console.log("...Guardando imagen...")
-    downloadImage(image.data[0].url , `./imagenes/${id}.jpg`)
+    downloadImage(image , `./imagenes/${id}.jpg`)
         .then(() => console.log('Imagen descargada con éxito.'))
         .catch(err => console.error('Error al descargar la imagen:', err));
   
