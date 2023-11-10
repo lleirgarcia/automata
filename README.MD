@@ -16,12 +16,18 @@
     - luego de alli tenerlas disponibles
 
 
+problemas
+- [] revisar pq las imagenes se guardan las JPG con un prefix "png", eso hace que la url del final no se guarda correctamente.
+- [] parece que al recuperar la imagen desde Github hay algun problemilla, parece que hay un proxi para permitir la imagen en raw.
+    esta url sale: https://github.com/lleirgarcia/automata/blob/develop/imagenes/png/8wE09mxPKw.png?raw=true
+- [] revisar pq la subida a facebook no tira (quizas es por el punto de arriba)
 
 - [] ideas.
     - [] hacer otra cuenta y meter videos de llados.
     - [] ver como de manera automatica puedo autogenerar clips de youtube.
     - [] transcribir esos clips y generar texto pasa instagram o twitter.
     - [] motivacion: automatizar la recogida de clips y autogeneracion de contenido de Llados y esta peña
+    
 
 
 
