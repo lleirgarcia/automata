@@ -43,7 +43,7 @@ async function generatePromptForDALLE(post = "", color = "green", style = "high 
 async function generateImagesFromPrompt(id = "", post = "", color = "green", style = "hiper realistic with high resolution") {
     console.log(`...Start generating Images...`)
     let filePath = "./imagenes/";
-    let pngFolder = './imagenes/png';
+    let pngFolder = './imagenes/png/';
     let image;
     let prompt = await generatePromptForDALLE(post, color, style);
     
@@ -70,7 +70,7 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
         .catch(err => console.error('Error al descargar la imagen:', err));
       
     // Convertir PNG a JPG TODO meter en una funcion nueva
-    await sharp(`${filePath}${id}.png`)
+    await sharp(`${filePath}${id}`)
     .toFormat('jpeg')
     .toFile(`${pngFolder}${id}.jpg`)
     .then(() => {
