@@ -7,21 +7,23 @@
 - [x] de los posts genero prompts a modo de historias para autogenerar imagenes para los posts
 - [x] guardo imagenes en el host y las enlazo por cada posts segun un ID
 - [x] prueba de subida de posts a instagram
-- [] subir desde el host a instagram lo que hay el local
+- [x] subir desde el host a instagram lo que hay el local
+- [] gestion de token desde el propio codigo
 - [] programar las subidas
     - [] Jenkins Docker en local siempre levantado
 - [] lo mismo de instagram, para twitter
 
-- [] subir las imagenes a un aws o por el estilo https://aws.amazon.com/es/s3/
+- [x] subir las imagenes a un aws o por el estilo https://aws.amazon.com/es/s3/
     - luego de alli tenerlas disponibles
+    - !! las subimos  a github (en el futuro mirar s3)
 
 
 # problemas
 - [x] revisar pq las imagenes se guardan las JPG con un prefix "png", eso hace que la url del final no se guarda correctamente.
     - parece que el pat tenia /imagenes/pm${id}.png
-- [] parece que al recuperar la imagen desde Github hay algun problemilla, parece que hay un proxi para permitir la imagen en raw.
+- [x] parece que al recuperar la imagen desde Github hay algun problemilla, parece que hay un proxi para permitir la imagen en raw.
     esta url sale: https://github.com/lleirgarcia/automata/blob/develop/imagenes/png/8wE09mxPKw.png?raw=true
-- [] revisar pq la subida a facebook no tira (quizas es por el punto de arriba)
+- [x] revisar pq la subida a facebook no tira (quizas es por el punto de arriba)
 
 - [] ideas.
     - [] hacer otra cuenta y meter videos de llados.
