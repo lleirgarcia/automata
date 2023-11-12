@@ -28,11 +28,10 @@ function generateRandomString(length) {
  * @returns {Promise<string>} - La historia generada.
  */
 async function generateStory(theme, subtheme) {
-    console.log(`...Generate story for ${theme} ${subtheme}...`)
     const prompt = `Dentro de la materia general "${theme}" y más en específico de "${subtheme}" eres un experto en el tema 
                     y necesito 1 posts para Instagram, de entre 3-5 pasos que una persona debería de hacer para acometer esos puntos y que le sirva como guía 
                     y que sean distintos a los posts que escribiste anteriormente sobre el mismo tema.
-                    Recuerda que son posts para instagram, así que ponlos bonitos. Por favor, no me añadas imagenes tipo.`;
+                    Recuerda que son posts para instagram, así que ponlos bonitos. Por favor, no me añadas imagenes tipo. Escribemelo en ingles.`;
 
     try {
         const chatCompletion = await openai.chat.completions.create({
@@ -40,7 +39,6 @@ async function generateStory(theme, subtheme) {
             model: "gpt-4-0613",
         });
 
-        // Retorna la respuesta generada
         return chatCompletion.choices[0].message.content;
     } catch (error) {
         console.error("Error al obtener la respuesta de OpenAI:", error);
@@ -59,19 +57,23 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
         var result = [];
 
         console.log("...Reading JSON to create posts...")
+        console.log("Temas: " + data)
+
         for (const tema of temas) {
+            console.log("Tema: " + tema.nombre)
             let temaObject = {
                 tema: tema.nombre,
                 subtemas: []
             };
 
             for (const subtema of tema.subtemas) {
+                console.log("Subtema: " + subtema)
                 let subtemaObject = {
                     subtema: subtema,
                     posts: []
                 };
                 let idrandom;
-                console.log(qttPosts)
+                
                 for (let i = 0; i < qttPosts; i++) {
                     idrandom = generateRandomString(10);
                     const story = await generateStory(tema.nombre, subtema);
@@ -82,13 +84,15 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
                     generateImagesFromPrompt(idrandom, story, tema.color);
                     subtemaObject.posts.push(post);
                     
-
                 }
                 temaObject.subtemas.push(subtemaObject);
+                console.log(temaObject.subtemas)
             }
             result.push(temaObject);
         }
-
+        console.log("Resultados json:")
+        console.log(result)
+        
         await fs.writeFile('temasConHistoriasV2.json', JSON.stringify(result, null, 2), 'utf8');
     } catch (error) {
         console.error("Error al leer o procesar el archivo JSON:", error);

@@ -1,20 +1,23 @@
-
 [
     {
         "nombre": "Crecimiento Personal y Desarrollo de Habilidades",
         "color": "verde",
         "subtemas": [
             "Establecimiento y seguimiento de metas"
-        ],
-        "nombre": "Gestión financiera y creacion de riqueza",
+        ]
+    },
+    {
+        "nombre": "Gestión financiera y creación de riqueza",
         "color": "azul",
         "subtemas": [
-            "Educacion financiera"
-        ],
+            "Educación financiera"
+        ]
+    },
+    {
         "nombre": "Motivación y bienestar integral",
         "color": "naranja",
         "subtemas": [
-            "Salud fisica y ejercicio"
+            "Salud física y ejercicio"
         ]
     }
 ]
