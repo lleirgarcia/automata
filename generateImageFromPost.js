@@ -71,29 +71,28 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
       
     console.log('...Convirtiendo en JPG...');
     
-    await sharp(`${filePath}${id}`)
-    .toFormat('jpeg')
-    .toFile(`${pngFolder}${id}.jpg`)
-    .then(() => {
-      console.log('Conversión completada');
+    await sharp(`${filePath}${id}.png`)
+      .toFormat('jpeg')
+      .toFile(`${pngFolder}${id}.jpg`)
+      .then(() => {
+        console.log('Conversión completada');
 
-      // Crear la carpeta ./imagenes/png si no existe
-      if (!fs.existsSync(pngFolder)){
-        fs.mkdirSync(pngFolder, { recursive: true });
-      }
+        // Crear la carpeta ./imagenes/png si no existe
+        if (!fs.existsSync(pngFolder)){
+          fs.mkdirSync(pngFolder, { recursive: true });
+        }
 
-      // Mover el archivo PNG original a la carpeta ./imagenes/png
-      let oldPath = `${filePath}${id}.png`;
-      let newPath = path.join(pngFolder, `${id}.png`);
-      fs.rename(oldPath, newPath, (err) => {
-        if (err) throw err;
-        console.log(`El archivo PNG ha sido movido a ${newPath}`);
+        // Mover el archivo PNG original a la carpeta ./imagenes/png
+        let oldPath = `${filePath}${id}.png`;
+        let newPath = path.join(pngFolder, `${id}.png`);
+        fs.rename(oldPath, newPath, (err) => {
+          if (err) throw err;
+          console.log(`El archivo PNG ha sido movido a ${newPath}`);
+        });
+      })
+      .catch(err => {
+        console.error('Error al convertir la imagen', err);
       });
-    })
-    .catch(err => {
-      console.error('Error al convertir la imagen', err);
-    });
-
 }
 
 // Función para descargar una imagen dada una URL
