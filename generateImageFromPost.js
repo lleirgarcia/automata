@@ -95,9 +95,14 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
 
 }
 
-
 // Función para descargar una imagen dada una URL
 async function downloadImage(url, imagePath) {
+  // Crear el directorio si no existe
+  const directory = path.dirname(imagePath);
+  if (!fs.existsSync(directory)){
+    fs.mkdirSync(directory, { recursive: true });
+  }
+
   const response = await axios({
     url,
     method: 'GET',
@@ -113,5 +118,6 @@ async function downloadImage(url, imagePath) {
     writer.on('error', reject);
   });
 }
+
 
 exports.generateImagesFromPrompt = generateImagesFromPrompt
