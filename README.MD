@@ -8,12 +8,19 @@
 - [x] guardo imagenes en el host y las enlazo por cada posts segun un ID
 - [x] prueba de subida de posts a instagram
 - [x] subir desde el host a instagram lo que hay el local
+- [] manejar subidas. si quiero subir 6 veces al dia, como lo gestiono? 
+    - estaría guay tener generado por ejemplo 100 posts y que estos se vayan subiendo de a poco (genero 100 y subo cada X horas)
+        - aqui necesitaría un control de que el post q estoy subiendo tenga un check (en el JSON?)
+    - tmb molaria que estos se fueran generando de a poco de forma automatica (genero post y lo subo cada X, genero y subo cada X)
+
 - [] gestion de token desde el propio codigo
 - [] programar las subidas
     - [] Jenkins Docker en local siempre levantado
 - [] lo mismo de instagram, para twitter
-- [] crear un JSON también en Españo, para una cuenta tmb española
+- [] crear un JSON también en Español, para una cuenta tmb española
     - [] revisar si hacerlo en la misma llamada o una vez tienes el JSON en ingles, leerlo y pasarlo al español.
+- [] crear un historico de posts. la idea es que los nuevos posts no se vayan repitiendo con el paso del tiempo con lo cual estaría genial poder 
+    tenerlos en cuenta (hay q ver los tokens) para re leerlos y crear a partir de alli 
 
 - [x] subir las imagenes a un aws o por el estilo https://aws.amazon.com/es/s3/
     - luego de alli tenerlas disponibles
