@@ -66,10 +66,11 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
     console.log(image)
     console.log("...Guardando imagen...")
     await downloadImage(image , `${filePath}${id}.png`)
-        .then(() => console.log('Imagen descargada con éxito.'))
+        .then(() => console.log('...Imagen descargada con éxito...'))
         .catch(err => console.error('Error al descargar la imagen:', err));
       
-    // Convertir PNG a JPG TODO meter en una funcion nueva
+    console.log('...Convirtiendo en JPG...');
+    
     await sharp(`${filePath}${id}`)
     .toFormat('jpeg')
     .toFile(`${pngFolder}${id}.jpg`)

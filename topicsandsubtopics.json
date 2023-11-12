@@ -5,16 +5,6 @@
         "color": "verde",
         "subtemas": [
             "Establecimiento y seguimiento de metas"
-        ],
-        "nombre": "Gestión financiera y creacion de riqueza",
-        "color": "azul",
-        "subtemas": [
-            "Educacion financiera"
-        ],
-        "nombre": "Motivación y bienestar integral",
-        "color": "naranja",
-        "subtemas": [
-            "Salud fisica y ejercicio"
         ]
     }
 ]
