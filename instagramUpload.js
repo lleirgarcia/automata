@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs').promises;
 const { pushImagesToRepo } = require("./uploadCodeToRepo");
+const { removeItemById } = require("./removerSubtema");
 require('dotenv').config();
 
 const igUserId = process.env.ONLYHABITS_ID;
@@ -48,11 +49,13 @@ async function main() {
         for (const tema of posts) {
             for (const subtema of tema.subtemas) {
                 for (const post of subtema.posts) {
-                    const imageUrl = `https://raw.githubusercontent.com/lleirgarcia/automata/develop/imagenes/${post.id}.jpg`; // Asumiendo que la imagen tiene el mismo ID que el post y es un archivo PNG
+                    let id = post.id;
+                    const imageUrl = `https://raw.githubusercontent.com/lleirgarcia/automata/develop/imagenes/${id}.jpg`; // Asumiendo que la imagen tiene el mismo ID que el post y es un archivo PNG
                     console.log("Image")
                     console.log(imageUrl)
                     const containerId = await createContainer(imageUrl, post.content);
                     await uploadPost(containerId);
+                    await removeItemById(id);
                 }
             }
         }
