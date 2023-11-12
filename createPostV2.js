@@ -32,7 +32,7 @@ async function generateStory(theme, subtheme) {
                     y necesito 1 posts para Instagram, de entre 3-5 pasos que una persona debería de hacer para acometer esos puntos y que le sirva como guía 
                     y que sean distintos a los posts que escribiste anteriormente sobre el mismo tema.
                     Recuerda que son posts para instagram, así que ponlos bonitos. Por favor, no me añadas imagenes tipo. 
-                    Escribemelo en ingles.
+                    Escribemelo en ${process.env.IDIOMA}.
                     En tu contestacion, escribeme unicamente los pasos o la descripcion que añadirias al post, nada de "Sure, I'd be happy to assist. Here's a suggestion for a post" ni enumeracion de posts ni nada por el estilo, solamente el texto que copiaré y pegaré para su uso.
                     En el caso de que enumeres puntos (1, 2, 3), utiliza los emojis de watsapp.
                     Dejalo limpio de (**).`;
