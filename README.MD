@@ -16,8 +16,9 @@
     - luego de alli tenerlas disponibles
 
 
-problemas
-- [] revisar pq las imagenes se guardan las JPG con un prefix "png", eso hace que la url del final no se guarda correctamente.
+# problemas
+- [x] revisar pq las imagenes se guardan las JPG con un prefix "png", eso hace que la url del final no se guarda correctamente.
+    - parece que el pat tenia /imagenes/pm${id}.png
 - [] parece que al recuperar la imagen desde Github hay algun problemilla, parece que hay un proxi para permitir la imagen en raw.
     esta url sale: https://github.com/lleirgarcia/automata/blob/develop/imagenes/png/8wE09mxPKw.png?raw=true
 - [] revisar pq la subida a facebook no tira (quizas es por el punto de arriba)
