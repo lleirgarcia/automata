@@ -42,7 +42,7 @@ async function generatePromptForDALLE(post = "", color = "green", style = "high 
 
 async function generateImagesFromPrompt(id = "", post = "", color = "green", style = "hiper realistic with high resolution") {
     console.log(`...Start generating Images...`)
-    let filePath = "./imagenes/";
+    let originFilePath = "./imagenes/";
     let pngFilePath = './imagenes/png/';
     let image;
     let prompt = await generatePromptForDALLE(post, color, style);
@@ -65,43 +65,56 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
     console.log("Imagen: ")
     console.log(image)
     console.log("...Guardando imagen...")
-    await downloadImage(image , `${filePath}${id}.png`)
+    await downloadImage(image , `${originFilePath}${id}.png`)
         .then(() => console.log('...Imagen descargada con éxito...'))
         .catch(err => console.error('Error al descargar la imagen:', err));
-
-        await convertImageFromPNGToJPG(filePath, pngFilePath)
+      
+    console.log('...Convirtiendo en JPG...');
     
-  }
+    convertImageFromPNGToJPG(originFilePath, pngFilePath, id)
+   
+}
+
 
 async function convertImageFromPNGToJPG(fromFilePath, toFilePath, imageName) {
-    try {
-        console.log('...Convirtiendo en JPG...');
-        await createFolderIfNotExists(toFilePath);
-        const fromFileFullPath = path.join(fromFilePath, `${imageName}.png`);
-        const toFileFullPath = path.join(toFilePath, `${imageName}.jpg`);
+  try {
+      console.log('...Convirtiendo en JPG...');
 
-        await sharp(fromFileFullPath)
-              .toFormat('jpeg')
-              .toFile(toFileFullPath);
+      // Crear la carpeta de destino si no existe
+      await createFolderIfNotExists(toFilePath);
 
-        console.log('Conversión completada');
-        await moveFile(fromFileFullPath, path.join(toFilePath, `${imageName}.png`));
-    } catch (err) {
-        console.error('Error durante la conversión o el movimiento de la imagen:', err);
-    }
+      // Rutas completas de los archivos original y destino
+      const fromFileFullPath = path.join(fromFilePath, `${imageName}.png`);
+      const toJPGFileFullPath = path.join(fromFilePath, `${imageName}.jpg`);
+      const toPNGFileFullPath = path.join(toFilePath, `${imageName}.png`);
+
+      // Convertir PNG a JPEG
+      await sharp(fromFileFullPath)
+            .toFormat('jpeg')
+            .toFile(toJPGFileFullPath);
+      console.log('Conversión completada');
+
+      // Mover el archivo PNG original a la carpeta de destino
+      await moveFile(fromFileFullPath, toPNGFileFullPath);
+  } catch (err) {
+      console.error('Error durante la conversión o el movimiento de la imagen:', err);
+  }
 }
 
 async function createFolderIfNotExists(folderPath) {
-    if (!fs.existsSync(folderPath)) {
-        fs.mkdirSync(folderPath, { recursive: true });
-    }
+  if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath, { recursive: true });
+  }
 }
 
 async function moveFile(oldPath, newPath) {
-    fs.rename(oldPath, newPath, (err) => {
-        if (err) throw err;
-        console.log(`El archivo ha sido movido a ${newPath}`);
-    });
+  return new Promise((resolve, reject) => {
+      fs.rename(oldPath, newPath, (err) => {
+          if (err) reject(err);
+          console.log(`El archivo ha sido movido a ${newPath}`);
+          resolve();
+      });
+  });
 }
 
 
@@ -109,7 +122,9 @@ async function moveFile(oldPath, newPath) {
 async function downloadImage(url, imagePath) {
   // Crear el directorio si no existe
   const directory = path.dirname(imagePath);
-  await createFolderIfNotExists(directory);
+  if (!fs.existsSync(directory)){
+    fs.mkdirSync(directory, { recursive: true });
+  }
 
   const response = await axios({
     url,
@@ -126,5 +141,6 @@ async function downloadImage(url, imagePath) {
     writer.on('error', reject);
   });
 }
+
 
 exports.generateImagesFromPrompt = generateImagesFromPrompt
