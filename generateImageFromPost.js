@@ -43,7 +43,7 @@ async function generatePromptForDALLE(post = "", color = "green", style = "high 
 async function generateImagesFromPrompt(id = "", post = "", color = "green", style = "hiper realistic with high resolution") {
     console.log(`...Start generating Images...`)
     let filePath = "./imagenes/";
-    let pngFolder = './imagenes/png/';
+    let pngFilePath = './imagenes/png/';
     let image;
     let prompt = await generatePromptForDALLE(post, color, style);
     
@@ -68,40 +68,48 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
     await downloadImage(image , `${filePath}${id}.png`)
         .then(() => console.log('...Imagen descargada con éxito...'))
         .catch(err => console.error('Error al descargar la imagen:', err));
-      
-    console.log('...Convirtiendo en JPG...');
+
+        await convertImageFromPNGToJPG(filePath, pngFilePath)
     
-    await sharp(`${filePath}${id}.png`)
-      .toFormat('jpeg')
-      .toFile(`${pngFolder}${id}.jpg`)
-      .then(() => {
+  }
+
+async function convertImageFromPNGToJPG(fromFilePath, toFilePath, imageName) {
+    try {
+        console.log('...Convirtiendo en JPG...');
+        await createFolderIfNotExists(toFilePath);
+        const fromFileFullPath = path.join(fromFilePath, `${imageName}.png`);
+        const toFileFullPath = path.join(toFilePath, `${imageName}.jpg`);
+
+        await sharp(fromFileFullPath)
+              .toFormat('jpeg')
+              .toFile(toFileFullPath);
+
         console.log('Conversión completada');
-
-        // Crear la carpeta ./imagenes/png si no existe
-        if (!fs.existsSync(pngFolder)){
-          fs.mkdirSync(pngFolder, { recursive: true });
-        }
-
-        // Mover el archivo PNG original a la carpeta ./imagenes/png
-        let oldPath = `${filePath}${id}.png`;
-        let newPath = path.join(pngFolder, `${id}.png`);
-        fs.rename(oldPath, newPath, (err) => {
-          if (err) throw err;
-          console.log(`El archivo PNG ha sido movido a ${newPath}`);
-        });
-      })
-      .catch(err => {
-        console.error('Error al convertir la imagen', err);
-      });
+        await moveFile(fromFileFullPath, path.join(toFilePath, `${imageName}.png`));
+    } catch (err) {
+        console.error('Error durante la conversión o el movimiento de la imagen:', err);
+    }
 }
+
+async function createFolderIfNotExists(folderPath) {
+    if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath, { recursive: true });
+    }
+}
+
+async function moveFile(oldPath, newPath) {
+    fs.rename(oldPath, newPath, (err) => {
+        if (err) throw err;
+        console.log(`El archivo ha sido movido a ${newPath}`);
+    });
+}
+
 
 // Función para descargar una imagen dada una URL
 async function downloadImage(url, imagePath) {
   // Crear el directorio si no existe
   const directory = path.dirname(imagePath);
-  if (!fs.existsSync(directory)){
-    fs.mkdirSync(directory, { recursive: true });
-  }
+  await createFolderIfNotExists(directory);
 
   const response = await axios({
     url,
@@ -118,6 +126,5 @@ async function downloadImage(url, imagePath) {
     writer.on('error', reject);
   });
 }
-
 
 exports.generateImagesFromPrompt = generateImagesFromPrompt
