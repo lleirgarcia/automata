@@ -12,6 +12,8 @@
 - [] programar las subidas
     - [] Jenkins Docker en local siempre levantado
 - [] lo mismo de instagram, para twitter
+- [] crear un JSON también en Españo, para una cuenta tmb española
+    - [] revisar si hacerlo en la misma llamada o una vez tienes el JSON en ingles, leerlo y pasarlo al español.
 
 - [x] subir las imagenes a un aws o por el estilo https://aws.amazon.com/es/s3/
     - luego de alli tenerlas disponibles
