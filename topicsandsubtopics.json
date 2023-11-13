@@ -1,9 +1,9 @@
 [
     {
-        "nombre": "Motivación y bienestar integral",
-        "color": "naranja",
+        "nombre": "Crecimiento Personal y Desarrollo de Habilidades",
+        "color": "verde",
         "subtemas": [
-            "Nutrición y hábitos alimenticios"
+            "Manejo del tiempo y productividad"
         ]
     }
 ]
