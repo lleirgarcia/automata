@@ -101,16 +101,65 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
     }
 }
 
+
+/**
+ * Construye el objeto de resultados basado en los temas y subtemas.
+ * @returns {Promise<void>}
+ */
+async function generatePostsWithTextAndImages(temaSubtema) {
+    try {
+        var result = [];
+        const partes = temaSubtema.split(',');
+
+        var tema = partes[0];
+        var subtema = partes[1];
+        var color = partes[2];
+
+        console.log("...Reading JSON to create posts...")
+
+        let temaObject = {
+            tema: tema,
+            subtemas: []
+        };
+            
+        let subtemaObject = {
+            subtema: subtema,
+            posts: []
+        };
+        let idrandom;
+                
+        idrandom = generateRandomString(10);
+        const story = await generateStory(tema, subtema);
+        const post = {
+            id: idrandom, // Genera un ID aleatorio para el post
+            content: story
+        };
+        generateImagesFromPrompt(idrandom, story, color);
+        subtemaObject.posts.push(post);      
+        temaObject.subtemas.push(subtemaObject);
+        result.push(temaObject);
+        
+    
+        await fs.writeFile('temasConHistoriasV2.json', JSON.stringify(result, null, 2), 'utf8');
+    } catch (error) {
+        console.error("Error al leer o procesar el archivo JSON:", error);
+    }
+}
+
 // Función principal que se ejecuta al iniciar el script
-async function main(filePath, postNumberBySubTopic) {
-    await generatePostsWithTextAndImages(postNumberBySubTopic, filePath);
+async function main(filePath, postNumberBySubTopic, temaSubtema) {
+    if(temaSubtema)
+        await generatePostsWithTextAndImages(temaSubtema);
+    else
+        await generatePostsWithTextAndImages(postNumberBySubTopic, filePath);
 }
 
 const jsonFilePath = process.argv[2] || 'topicsandsubtopics.json';
 const postNumberBySubTopic = process.argv[3] || process.env.NUM_POSTS_PER_TOPIC;
+const temaSubtema = process.argv[4];
 
 // Manejo de errores en la función principal
-main(jsonFilePath, postNumberBySubTopic).catch(console.error)
+main(jsonFilePath, postNumberBySubTopic, temaSubtema).catch(console.error)
 
 
 exports.generateStory = generateStory;

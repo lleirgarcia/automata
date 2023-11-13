@@ -10,18 +10,20 @@
 - [x] subir desde el host a instagram lo que hay el local
 
 # by priority
-- [] gestion de token desde el propio codigo
-- [] manejar subidas. si quiero subir 6 veces al dia, como lo gestiono? 
-    - estaría guay tener generado por ejemplo 100 posts y que estos se vayan subiendo de a poco (genero 100 y subo cada X horas)
-        - aqui necesitaría un control de que el post q estoy subiendo tenga un check (en el JSON?)
-    - tmb molaria que estos se fueran generando de a poco de forma automatica (genero post y lo subo cada X, genero y subo cada X)
+- [x] gestion de token desde el propio codigo
+    - revisar si esto funciona (https://www.youtube.com/watch?v=eIeDKLCgP6A)
+- [] programar las subidas
+    - [] Git hub actions (esta en un chat de gpt)
 - [] contabilizador de imagenes generadas
     - hacer un registro diario de imagenes que se autogeneran
     - hacer un registro diario de prompts que se autogeneran
     - esto me servirá para conocer mis gastos
+- [] manejar subidas. si quiero subir 6 veces al dia, como lo gestiono? 
+    - estaría guay tener generado por ejemplo 100 posts y que estos se vayan subiendo de a poco (genero 100 y subo cada X horas)
+        - aqui necesitaría un control de que el post q estoy subiendo tenga un check (en el JSON?)
+    - tmb molaria que estos se fueran generando de a poco de forma automatica (genero post y lo subo cada X, genero y subo cada X)
 
-- [] programar las subidas
-    - [] Git hub actions (esta en un chat de gpt
+
 - [] crear un JSON también en Español, para una cuenta tmb española
     - [] revisar si hacerlo en la misma llamada o una vez tienes el JSON en ingles, leerlo y pasarlo al español.
 - [] crear un historico de posts. la idea es que los nuevos posts no se vayan repitiendo con el paso del tiempo con lo cual estaría genial poder 
