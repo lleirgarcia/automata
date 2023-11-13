@@ -11,6 +11,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
     - name: Check Issue Title and Extract Text
       id: extract_text
       run: |
@@ -21,19 +22,24 @@ jobs:
           echo "El título del issue contiene el texto clave. Extrayendo el texto adicional..."
           # Extrae el texto después del texto clave
           ADDITIONAL_TEXT=$(echo "$ISSUE_TITLE" | sed "s/.*$KEYWORD//")
+          echo $ADDITIONAL_TEXT
           echo "ADDITIONAL_TEXT=$ADDITIONAL_TEXT" >> $GITHUB_ENV
+          echo $GITHUB_ENV
           echo "TITLE_CONTAINS=true" >> $GITHUB_ENV
         else
           echo "El título del issue no contiene el texto clave. Terminando el workflow..."
           echo "TITLE_CONTAINS=false" >> $GITHUB_ENV
+
     - name: Set up Node.js
       if: env.TITLE_CONTAINS == 'true'
       uses: actions/setup-node@v2
       with:
         node-version: '14'
+
     - name: Install dependencies
       if: env.TITLE_CONTAINS == 'true'
       run: npm install
+
     - name: Run Node.js script with additional text
       if: env.TITLE_CONTAINS == 'true'
       run: node createPostV2.js topicsandsubtopics.json 1 "$ADDITIONAL_TEXT"
