@@ -40,4 +40,4 @@ jobs:
 
     - name: Run Node.js script with additional text
       if: env.TITLE_CONTAINS == 'true'
-      run: node script.js "$ADDITIONAL_TEXT"
+      run: node createPostV2.js topicsandsubtopics.json 1 "$ADDITIONAL_TEXT"
