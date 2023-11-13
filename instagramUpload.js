@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs').promises;
 const { pushImagesToRepo } = require("./uploadCodeToRepo");
-const { removeItemById } = require("./removerSubtema");
+const { removePostById } = require("./removerSubtema");
 require('dotenv').config();
 
 const igUserId = process.env.ONLYHABITS_ID;
@@ -55,7 +55,7 @@ async function main() {
                     console.log(imageUrl)
                     const containerId = await createContainer(imageUrl, post.content);
                     await uploadPost(containerId);
-                    await removeItemById(id);
+                    await removePostById(id);
                 }
             }
         }

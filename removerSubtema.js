@@ -57,4 +57,4 @@ require('dotenv').config();
     }
 }
 
-exports.removeItemById = removeItemById
+exports.removePostById = removePostById
