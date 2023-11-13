@@ -12,6 +12,10 @@
     - estaría guay tener generado por ejemplo 100 posts y que estos se vayan subiendo de a poco (genero 100 y subo cada X horas)
         - aqui necesitaría un control de que el post q estoy subiendo tenga un check (en el JSON?)
     - tmb molaria que estos se fueran generando de a poco de forma automatica (genero post y lo subo cada X, genero y subo cada X)
+- [] contabilizador de imagenes generadas
+    - hacer un registro diario de imagenes que se autogeneran
+    - hacer un registro diario de prompts que se autogeneran
+    - esto me servirá para conocer mis gastos
 
 - [] gestion de token desde el propio codigo
 - [] programar las subidas
