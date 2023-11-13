@@ -22,7 +22,7 @@ jobs:
           echo "El título del issue contiene el texto clave. Extrayendo el texto adicional..."
           # Extrae el texto después del texto clave
           ADDITIONAL_TEXT=$(echo "$ISSUE_TITLE" | sed "s/.*$KEYWORD//")
-          echo $ADDITIONAL_TEXT
+          echo "Texto clave $ADDITIONAL_TEXT"
           echo "ADDITIONAL_TEXT=$ADDITIONAL_TEXT" >> $GITHUB_ENV
           echo $GITHUB_ENV
           echo "TITLE_CONTAINS=true" >> $GITHUB_ENV
@@ -30,7 +30,7 @@ jobs:
           echo "El título del issue no contiene el texto clave. Terminando el workflow..."
           echo "TITLE_CONTAINS=false" >> $GITHUB_ENV
         fi
-        
+
     - name: Set up Node.js
       if: env.TITLE_CONTAINS == 'true'
       uses: actions/setup-node@v2
@@ -43,4 +43,4 @@ jobs:
 
     - name: Run Node.js script with additional text
       if: env.TITLE_CONTAINS == 'true'
-      run: node createPostV2.js topicsandsubtopics.json 1 "$ADDITIONAL_TEXT"
+      run: node createPostV2.js topicsandsubtopics.json 1 $ADDITIONAL_TEXT
