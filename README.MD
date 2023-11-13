@@ -1,7 +1,7 @@
 # A U T O M A T A
 
 
-# next steps
+# next steps (todo list)
 - [x] generar posts para Instagram desde 1 tema generico y un sub tema.
 - [x] hacer esto cada X veces (segun los temas y subtemas de un JSON y X veces por cada tema)
 - [x] de los posts genero prompts a modo de historias para autogenerar imagenes para los posts
@@ -38,7 +38,7 @@
     esta url sale: https://github.com/lleirgarcia/automata/blob/develop/imagenes/png/8wE09mxPKw.png?raw=true
 - [x] revisar pq la subida a facebook no tira (quizas es por el punto de arriba)
 
-- [] ideas.
+# ideas
     - [] hacer otra cuenta y meter videos de llados.
     - [] ver como de manera automatica puedo autogenerar clips de youtube.
     - [] transcribir esos clips y generar texto pasa instagram o twitter.
