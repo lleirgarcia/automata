@@ -17,7 +17,7 @@ jobs:
       run: |
         ISSUE_TITLE="${{ github.event.issue.title }}"
         KEYWORD="ex" # Reemplaza con el texto que debe contener el título
-
+        echo $ISSUE_TITLE
         if [[ "$ISSUE_TITLE" == *"$KEYWORD"* ]]; then
           echo "El título del issue contiene el texto clave. Extrayendo el texto adicional..."
           # Extrae el texto después del texto clave
