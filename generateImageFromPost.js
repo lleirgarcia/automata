@@ -19,7 +19,7 @@ function prepareTextForAPrompt(post) {
   let isHumanInImage = process.env.IMAGEN_CON_HUMANOS;
   let currentPost;
 
-  if(isHumanInImage)
+  if(!isHumanInImage)
     removeSteps = `${removeSteps} Ademas, intenta que en la historia no salga un humano, persona o ser vivo. Necesito una historia abstracta que tenga que ver con el post.`; 
 
   if(post)
