@@ -148,6 +148,7 @@ async function generatePostsWithTextAndImages(temaSubtema) {
 
 // Función principal que se ejecuta al iniciar el script
 async function main(filePath, postNumberBySubTopic, temaSubtema) {
+console.log("dentro el script")
     if(temaSubtema)
         await generatePostsWithTextAndImages(temaSubtema);
     else
@@ -160,6 +161,5 @@ const temaSubtema = process.argv[4];
 
 // Manejo de errores en la función principal
 main(jsonFilePath, postNumberBySubTopic, temaSubtema).catch(console.error)
-
 
 exports.generateStory = generateStory;
