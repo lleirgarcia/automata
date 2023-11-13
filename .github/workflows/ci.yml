@@ -29,7 +29,8 @@ jobs:
         else
           echo "El título del issue no contiene el texto clave. Terminando el workflow..."
           echo "TITLE_CONTAINS=false" >> $GITHUB_ENV
-
+        fi
+        
     - name: Set up Node.js
       if: env.TITLE_CONTAINS == 'true'
       uses: actions/setup-node@v2
