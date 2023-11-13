@@ -15,8 +15,12 @@ const openai = new OpenAI({
 });
 
 function prepareTextForAPrompt(post) {
-  let removeSteps = `Remueve los pasos y hazme historia real del post y generame un prompt para generar una imagen en DALL-E: `
+  let removeSteps = `Remueve los pasos y hazme historia real del post y generame un prompt para generar una imagen en DALL-E.`
+  let isHumanInImage = process.env.IMAGEN_CON_HUMANOS;
   let currentPost;
+
+  if(isHumanInImage)
+    removeSteps = `${removeSteps} Ademas, intenta que en la historia no salga un humano, persona o ser vivo. Necesito una historia abstracta que tenga que ver con el post.`; 
 
   if(post)
       currentPost = post

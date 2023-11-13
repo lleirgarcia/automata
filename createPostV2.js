@@ -35,7 +35,8 @@ async function generateStory(theme, subtheme) {
                     Escribemelo en ${process.env.IDIOMA}.
                     En tu contestacion, escribeme unicamente los pasos o la descripcion que añadirias al post, nada de "Sure, I'd be happy to assist. Here's a suggestion for a post" ni enumeracion de posts ni nada por el estilo, solamente el texto que copiaré y pegaré para su uso.
                     En el caso de que enumeres puntos (1, 2, 3), utiliza los emojis de watsapp.
-                    Dejalo limpio de (**).`;
+                    Dejalo limpio de asteriscos que no aportan nada (**).
+                    Dejalo limpio de comillas que no sirven (").`;
 
     try {
         const chatCompletion = await openai.chat.completions.create({
