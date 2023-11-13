@@ -1,12 +1,10 @@
 const { OpenAI } = require("openai");
-const { json } = require("stream/consumers");
 const { generateImage } = require("./createImageFromAPrompt");
 const { generatePrompt } = require("./chatgpt_model4");
 const axios = require('axios');
 const fs = require('fs');
 const sharp = require('sharp');
 const path = require('path');
-const { url } = require("inspector");
 
 require('dotenv').config();
 

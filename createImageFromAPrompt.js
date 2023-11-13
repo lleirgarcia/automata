@@ -1,5 +1,4 @@
 const { OpenAI } = require("openai");
-const { json } = require("stream/consumers");
 const fs = require('fs').promises;
 require('dotenv').config();
 
