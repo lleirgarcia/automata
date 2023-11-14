@@ -56,12 +56,11 @@ async function generateStory(theme, subtheme) {
  * @returns {Promise<void>}
  */
 async function generatePostsWithTextAndImages(qttPosts, filePath) {
+    console.log("...Reading JSON to create posts by JSON...")
     try {
         const data = await fs.readFile(filePath, 'utf8');
         const temas = JSON.parse(data);
         var result = [];
-
-        console.log("...Reading JSON to create posts...")
 
         for (const tema of temas) {
             let temaObject = {
@@ -75,8 +74,10 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
                     posts: []
                 };
                 let idrandom;
-                
+                console.log("Tema: " + tema.nombre)
+                console.log("Subtema:" + subtema)
                 for (let i = 0; i < qttPosts; i++) {
+                    
                     idrandom = generateRandomString(10);
                     const story = await generateStory(tema.nombre, subtema);
                     const post = {
@@ -149,9 +150,9 @@ async function generatePostsWithTextAndImages(temaSubtema) {
 // Función principal que se ejecuta al iniciar el script
 async function main(filePath, postNumberBySubTopic, temaSubtema) {
 console.log("dentro el script")
-console.log("filepath: " + filePath)
-console.log("posts: " + postNumberBySubTopic)
-console.log("temas subtema: " + temaSubtema)
+console.log("args filepath: " + filePath)
+console.log("args  posts: " + postNumberBySubTopic)
+console.log("args temas subtema: " + temaSubtema)
 
     if(temaSubtema)
         await generatePostsWithTextAndImages(temaSubtema);
