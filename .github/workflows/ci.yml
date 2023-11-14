@@ -7,6 +7,8 @@ on:
 jobs:
   check-issue-and-run-script:
     runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     if: github.event_name == 'issues' && github.event.action == 'opened'
     steps:
     - name: Checkout repository

@@ -14,6 +14,9 @@
     - revisar si esto funciona (https://www.youtube.com/watch?v=eIeDKLCgP6A)
 - [] programar las subidas
     - [] Git hub actions (esta en un chat de gpt)
+    - [] estoy en ello, me queda poner el API key de OpenIA en algun sitio
+        para poder ejecutar 
+        Lo mismo con IG.
 - [] contabilizador de imagenes generadas
     - hacer un registro diario de imagenes que se autogeneran
     - hacer un registro diario de prompts que se autogeneran
