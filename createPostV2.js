@@ -149,6 +149,10 @@ async function generatePostsWithTextAndImages(temaSubtema) {
 // Función principal que se ejecuta al iniciar el script
 async function main(filePath, postNumberBySubTopic, temaSubtema) {
 console.log("dentro el script")
+console.log("filepath: " + filePath)
+console.log("posts: " + postNumberBySubTopic)
+console.log("temas subtema: " + temaSubtema)
+
     if(temaSubtema)
         await generatePostsWithTextAndImages(temaSubtema);
     else
