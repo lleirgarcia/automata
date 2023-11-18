@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ACCES_TOKEN: ${{ secrets.ACCES_TOKEN }}
     if: github.event_name == 'issues' && github.event.action == 'opened'
     steps:
     - name: Checkout repository
