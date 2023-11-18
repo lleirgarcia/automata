@@ -24,6 +24,7 @@ async function pushImagesToRepo() {
 
         // Obtener el token de GitHub
         const token = process.env.GACTIONS_ACCESTOKEN;
+        console.log("actions: " + token)
         const repoName = 'automata'; // Reemplazar con el nombre real de tu repositorio
         const username = 'lleirgarcia'; // Reemplazar con tu usuario de GitHub
 
