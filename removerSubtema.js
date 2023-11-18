@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
-require('dotenv').config({ path: 'ruta/a/tu/openai.env' });
+require('dotenv').config({ path: './openai.env' });
 require('dotenv').config();
 
 /**
