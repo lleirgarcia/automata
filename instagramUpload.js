@@ -1,10 +1,12 @@
 const axios = require('axios');
 const fs = require('fs').promises;
+const { execSync } = require('child_process');
 const { pushImagesToRepo } = require("./uploadCodeToRepo");
 const { removePostById } = require("./removerSubtema");
 require('dotenv').config({ path: './openai.env' });
 require('dotenv').config();
 
+const branch = execSync('git branch --show-current').toString().trim();
 const igUserId = process.env.ONLYHABITS_ID;
 const token = process.env.ACCES_TOKEN;
 const jsonFilePath = './temasConHistoriasV2.json'; // Ruta al archivo JSON
@@ -51,7 +53,7 @@ async function main() {
             for (const subtema of tema.subtemas) {
                 for (const post of subtema.posts) {
                     let id = post.id;
-                    const imageUrl = `https://raw.githubusercontent.com/lleirgarcia/automata/develop/imagenes/${id}.jpg`; // Asumiendo que la imagen tiene el mismo ID que el post y es un archivo PNG
+                    const imageUrl = `https://raw.githubusercontent.com/lleirgarcia/automata/${branch}/imagenes/${id}.jpg`; // Asumiendo que la imagen tiene el mismo ID que el post y es un archivo PNG
                     console.log("Image")
                     console.log(imageUrl)
                     const containerId = await createContainer(imageUrl, post.content);
