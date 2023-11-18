@@ -23,7 +23,7 @@ async function pushImagesToRepo() {
         runGitCommand('git config --global user.name "automatic_upload"');
 
         // Obtener el token de GitHub
-        const token = "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"; // GACTIONS_ACCESTOKEN
+        const token = process.env.GACTIONS_ACCESTOKEN;
         const repoName = 'automata'; // Reemplazar con el nombre real de tu repositorio
         const username = 'lleirgarcia'; // Reemplazar con tu usuario de GitHub
 
