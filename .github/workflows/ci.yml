@@ -10,12 +10,11 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       ACCES_TOKEN: ${{ secrets.ACCES_TOKEN }}
+      GACTIONS_ACCESTOKEN: ${{ secrets.GACTIONS_ACCESTOKEN }}
     if: github.event_name == 'issues' && github.event.action == 'opened'
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with: 
-        repo-token: ${{ secrets.GACTIONS_ACCESTOKEN }}
 
     - name: Check Issue Title and Extract Text
       id: extract_text
