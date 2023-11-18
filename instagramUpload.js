@@ -20,6 +20,9 @@ async function createContainer(imageUrl, caption) {
         access_token: token 
     };
     try {
+        console.log(urlMedia)
+        console.log(params)
+        console.log("aa")
         const response = await axios.post(urlMedia, params);
         return response.data.id; // Aquí asumo que response.data contiene el ID o identificador que necesitas.
     } catch (error) {
