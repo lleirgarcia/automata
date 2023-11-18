@@ -5,8 +5,22 @@ const branch = execSync('git branch --show-current').toString().trim();
 
 const commitMessage = 'auto adding images to repo.';
 
+function runGitCommand(command) {
+    execSync(command, (err, stdout, stderr) => {
+        if (err) {
+            console.error(`Error: ${err}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.error(`stderr: ${stderr}`);
+    });
+}
+
+
 async function pushImagesToRepo() {
     try {
+        runGitCommand('git config --global user.email "lleirgarcia@gmail.com"');
+        runGitCommand('git config --global user.name "automatic_upload"');
         // Verificar el estado del repositorio
         // const status = await git.status();
         // console.log(status);
@@ -27,4 +41,4 @@ async function pushImagesToRepo() {
     }
 }
 
-exports.pushImagesToRepo = pushImagesToRepo
+pushImagesToRepo()
