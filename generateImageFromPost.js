@@ -70,8 +70,6 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
     await downloadImage(image , `${originFilePath}${id}.png`)
         .then(() => console.log('...Imagen descargada con éxito...'))
         .catch(err => console.error('Error al descargar la imagen:', err));
-      
-    console.log('...Convirtiendo en JPG...');
     
     convertImageFromPNGToJPG(originFilePath, pngFilePath, id)
    
@@ -90,6 +88,7 @@ async function convertImageFromPNGToJPG(fromFilePath, toFilePath, imageName) {
       const toJPGFileFullPath = path.join(fromFilePath, `${imageName}.jpg`);
       const toPNGFileFullPath = path.join(toFilePath, `${imageName}.png`);
 
+      console.log('...Moving...');
       // Convertir PNG a JPEG
       await sharp(fromFileFullPath)
             .toFormat('jpeg')
@@ -104,9 +103,13 @@ async function convertImageFromPNGToJPG(fromFilePath, toFilePath, imageName) {
 }
 
 async function createFolderIfNotExists(folderPath) {
+  console.log(process.cwd());
+  console.log(process.cwd());
+
   if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath, { recursive: true });
   }
+  
 }
 
 async function moveFile(oldPath, newPath) {
