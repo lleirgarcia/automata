@@ -16,29 +16,31 @@ function runGitCommand(command) {
     });
 }
 
-
 async function pushImagesToRepo() {
     try {
+        // Configurar usuario y email
         runGitCommand('git config --global user.email "lleirgarcia@gmail.com"');
         runGitCommand('git config --global user.name "automatic_upload"');
-        // Verificar el estado del repositorio
-        // const status = await git.status();
-        // console.log(status);
 
-        // Añadir archivos al staging area
+        // Obtener el token de GitHub
+        const token = "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";
+        const repoName = 'automata'; // Reemplazar con el nombre real de tu repositorio
+        const username = 'lleirgarcia'; // Reemplazar con tu usuario de GitHub
+
+        // Cambiar la URL del repositorio para incluir el token
+        const repoUrlWithToken = `https://${token}@github.com/${username}/${repoName}.git`;
+        await git.remote(['set-url', 'origin', repoUrlWithToken]);
+
+        // Añadir, commit y push
         await git.add('./*');
         console.log('Archivos añadidos');
-
-        // Realizar el commit
         await git.commit(commitMessage);
         console.log('Commit realizado');
-
-        // Empujar los cambios
-        await git.push('origin', branch); // Asegúrate de cambiar 'master' por el nombre de tu rama si es diferente
+        await git.push('origin', branch);
         console.log('Cambios empujados al repositorio');
     } catch (error) {
         console.error('Error:', error);
     }
 }
 
-exports.pushImagesToRepo = pushImagesToRepo
+exports.pushImagesToRepo = pushImagesToRepo;
