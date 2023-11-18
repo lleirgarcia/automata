@@ -46,4 +46,4 @@ jobs:
 
     - name: Run Node.js script with additional text
       if: env.TITLE_CONTAINS == 'true'
-      run: node createPostV2.js topicsandsubtopics.json 1 $ADDITIONAL_TEXT && instagramUpload.js
+      run: node createPostV2.js topicsandsubtopics.json 1 $ADDITIONAL_TEXT && node instagramUpload.js
