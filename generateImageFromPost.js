@@ -5,7 +5,7 @@ const axios = require('axios');
 const fs = require('fs');
 const sharp = require('sharp');
 const path = require('path');
-
+require('dotenv').config({ path: 'ruta/a/tu/openai.env' });
 require('dotenv').config();
 
 const openai = new OpenAI({
@@ -50,9 +50,9 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
     let prompt = await generatePromptForDALLE(post, color, style);
     
     console.log(`---From prompt: ${prompt}`)
-    // if(process.env.IMAGE_GEN_ACTIVE) {
+    if(process.env.IMAGE_GEN_ACTIVE) {
       image = await generateImage(prompt) // comentar pq sino esto perdera muchos tokens y me valdrá bastante pasta.
-    // } else {
+    } else {
       // image = {
       //   created: 1699553319,
       //   data: [
@@ -62,7 +62,7 @@ async function generateImagesFromPrompt(id = "", post = "", color = "green", sty
       //     }
       //   ]
       // }
-    // }
+    }
       
     console.log("Imagen: ")
     console.log(image)

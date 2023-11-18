@@ -2,6 +2,7 @@ const axios = require('axios');
 const fs = require('fs').promises;
 const { pushImagesToRepo } = require("./uploadCodeToRepo");
 const { removePostById } = require("./removerSubtema");
+require('dotenv').config({ path: 'ruta/a/tu/openai.env' });
 require('dotenv').config();
 
 const igUserId = process.env.ONLYHABITS_ID;

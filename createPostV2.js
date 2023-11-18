@@ -1,6 +1,7 @@
 const { OpenAI } = require("openai");
 const { generateImagesFromPrompt } = require("./generateImageFromPost");
 const fs = require('fs').promises;
+require('dotenv').config({ path: 'ruta/a/tu/openai.env' });
 require('dotenv').config();
 
 let token;
