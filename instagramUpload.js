@@ -32,6 +32,7 @@ async function createContainer(imageUrl, caption) {
 }
 
 async function uploadPost(containerId) {
+    console.log("oo")
     const urlMediaPublish = `https://graph.facebook.com/v18.0/${igUserId}/media_publish`;
     const params = {
         creation_id: containerId,
