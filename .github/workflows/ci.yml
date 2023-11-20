@@ -34,9 +34,10 @@ jobs:
         if [[ "$ISSUE_TITLE" == *"$KEYWORD"* ]]; then
           echo "El título del issue contiene el texto clave. Extrayendo el texto adicional..."
           # Extrae el texto después del texto clave
-          ADDITIONAL_TEXT=$(echo "$ISSUE_TITLE" | sed "s/.*$KEYWORD//")
-          echo "Texto clave $ADDITIONAL_TEXT"
-          echo "ADDITIONAL_TEXT=$ADDITIONAL_TEXT" >> $GITHUB_ENV
+          ADDITIONAL_TEXT=$(echo "$ISSUE_TITLE" | sed "s/.*$KEYWORD//" | sed 's/"/\\"/g')
+          # Asegurarse de que ADDITIONAL_TEXT esté entre comillas
+          echo "Texto clave \"$ADDITIONAL_TEXT\""
+          echo "ADDITIONAL_TEXT=\"$ADDITIONAL_TEXT\"" >> $GITHUB_ENV
           echo $GITHUB_ENV
           echo "TITLE_CONTAINS=true" >> $GITHUB_ENV
         else
