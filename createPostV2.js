@@ -120,7 +120,8 @@ async function generatePostsWithTextAndImages(temaSubtema) {
         var subtema = partes[1];
         var color = partes[2];
 
-        console.log("...Reading JSON to create posts...")
+        console.log("...Reading topic...")
+        console.log(`Tema ${tema}, Subtema ${subtema}, Color ${color}`)
 
         let temaObject = {
             tema: tema,
@@ -152,29 +153,23 @@ async function generatePostsWithTextAndImages(temaSubtema) {
 }
 
 // Función principal que se ejecuta al iniciar el script
-async function main(filePath, postNumberBySubTopic, temaSubtema, accesToken) {
+async function main(filePath, postNumberBySubTopic, temaSubtema) {
     console.log("dentro el script")
     console.log("args filepath: " + filePath)
     console.log("args  posts: " + postNumberBySubTopic)
     console.log("args temas subtema: " + temaSubtema)
-    console.log("args token facebook: " + accesToken)
-    
-    if(accesToken) {
-        process.env.OPENAI_API_KEY = accesToken;
-    }
 
     if(temaSubtema)
-        await generatePostsWithTextAndImages(temaSubtema, accesToken);
+        await generatePostsWithTextAndImages(temaSubtema);
     else
-        await generatePostsWithTextAndImages(postNumberBySubTopic, filePath, accesToken);
+        await generatePostsWithTextAndImages(postNumberBySubTopic, filePath);
 }
 
 const jsonFilePath = process.argv[2] || 'topicsandsubtopics.json';
 const postNumberBySubTopic = process.argv[3] || process.env.NUM_POSTS_PER_TOPIC;
 const temaSubtema = process.argv[4];
-const accesToken = process.argv[5];
 
 // Manejo de errores en la función principal
-main(jsonFilePath, postNumberBySubTopic, temaSubtema, accesToken).catch(console.error)
+main(jsonFilePath, postNumberBySubTopic, temaSubtema).catch(console.error)
 
 exports.generateStory = generateStory;
