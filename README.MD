@@ -83,3 +83,18 @@ IMAGE_GEN_ACTIVE=true
 #INSTAGRAM
 ONLYHABITS_ID={ig_user_id}
 ACCES_TOKEN={access_token}
+
+
+
+## ultimo resumen
+he metido un acces token de github para poder ejecutar desde el repositorio.
+ojo al ejecutarlo en local pq se desconfigura el url y no me deja subir.
+si sucede ejecutar:
+    git remote -v  
+    git remote set-url origin git@github.com:lleirgarcia/automata.git    
+
+* parece q esto no esta tirando bien, revisar
+* revisar tokens y ariables en .env y secrets del actions
+
+
+
