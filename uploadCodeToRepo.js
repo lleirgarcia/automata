@@ -33,6 +33,9 @@ async function pushImagesToRepo() {
         const repoUrlWithToken = `https://${token}@github.com/${username}/${repoName}.git`;
         await git.remote(['set-url', 'origin', repoUrlWithToken]);
 
+        const gitRepoUrl = execSync('git config --get remote.origin.url').toString().trim();
+        console.log(`URL del repositorio Git actual: ${gitRepoUrl}`);
+
         // Añadir, commit y push
         await git.add('./*');
         console.log('Archivos añadidos');
