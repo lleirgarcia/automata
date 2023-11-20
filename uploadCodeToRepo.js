@@ -2,6 +2,7 @@ const simpleGit = require('simple-git');
 const git = simpleGit();
 const { execSync } = require('child_process');
 const branch = execSync('git branch --show-current').toString().trim();
+require('dotenv').config();
 
 const commitMessage = 'auto adding images to repo.';
 
