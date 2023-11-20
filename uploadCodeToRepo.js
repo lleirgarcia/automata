@@ -39,4 +39,4 @@ async function pushImagesToRepo() {
     }
 }
 
-pushImagesToRepo();
+exports.pushImagesToRepo = pushImagesToRepo;
