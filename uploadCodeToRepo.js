@@ -1,20 +1,12 @@
 const simpleGit = require('simple-git');
 const git = simpleGit();
 const { execSync } = require('child_process');
-const branch = execSync('git branch --show-current').toString().trim();
 require('dotenv').config();
 
 const commitMessage = 'auto adding images to repo.';
 
 function runGitCommand(command) {
-    execSync(command, (err, stdout, stderr) => {
-        if (err) {
-            console.error(`Error: ${err}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-    });
+    execSync(command, { stdio: 'inherit' }); // Cambiado para manejar correctamente stdout y stderr
 }
 
 async function pushImagesToRepo() {
@@ -23,19 +15,17 @@ async function pushImagesToRepo() {
         runGitCommand('git config --global user.email "lleirgarcia@gmail.com"');
         runGitCommand('git config --global user.name "automatic_upload"');
 
-        // Obtener el token de GitHub
-        const token = process.env.GACTIONS_ACCESTOKEN;
-        console.log("actions: " + token)
-        console.log("token: " + process.env.ACCES_TOKEN)
         const repoName = 'automata'; // Reemplazar con el nombre real de tu repositorio
         const username = 'lleirgarcia'; // Reemplazar con tu usuario de GitHub
 
-        // Cambiar la URL del repositorio para incluir el token
-        const repoUrlWithToken = `https://${token}@github.com/${username}/${repoName}.git`;
-        await git.remote(['set-url', 'origin', repoUrlWithToken]);
+        // Cambiar la URL del repositorio para usar SSH
+        const repoUrlWithSSH = `git@github.com:${username}/${repoName}.git`;
+        await git.remote(['set-url', 'origin', repoUrlWithSSH]);
 
         const gitRepoUrl = execSync('git config --get remote.origin.url').toString().trim();
         console.log(`URL del repositorio Git actual: ${gitRepoUrl}`);
+
+        const branch = execSync('git branch --show-current').toString().trim();
 
         // Añadir, commit y push
         await git.add('./*');
@@ -49,4 +39,4 @@ async function pushImagesToRepo() {
     }
 }
 
-exports.pushImagesToRepo = pushImagesToRepo;
+pushImagesToRepo();
