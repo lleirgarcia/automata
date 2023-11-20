@@ -11,6 +11,7 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       ACCES_TOKEN: ${{ secrets.ACCES_TOKEN }}
       GACTIONS_ACCESTOKEN: ${{ secrets.GACTIONS_ACCESTOKEN }}
+      SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
     if: github.event_name == 'issues' && github.event.action == 'opened'
     steps:
     - name: Checkout repository
