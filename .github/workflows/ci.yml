@@ -3,6 +3,8 @@ name: Issue Title Contains Trigger and Node.js Script Execution
 on:
   issues:
     types: [opened, edited]
+  schedule:
+    - cron: '0 */6 * * *' # This schedules the workflow every 3 hours
 
 jobs:
   check-issue-and-run-script:
