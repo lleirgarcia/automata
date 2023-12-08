@@ -64,47 +64,71 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
     try {
         const data = await fs.readFile(filePath, 'utf8');
         const temas = JSON.parse(data);
-        var result = [];
 
+        // Encontrar el tema con menos subtemas
+        let temaConMenosSubtemas = temas[0];
         for (const tema of temas) {
-            let temaObject = {
-                tema: tema.nombre,
-                subtemas: []
-            };
-
-            for (const subtema of tema.subtemas) {
-                let subtemaObject = {
-                    subtema: subtema,
-                    posts: []
-                };
-                let idrandom;
-                console.log("Tema: " + tema.nombre)
-                console.log("Subtema:" + subtema)
-                for (let i = 0; i < qttPosts; i++) {
-                    
-                    idrandom = generateRandomString(10);
-                    const story = await generateStory(tema.nombre, subtema);
-                    const post = {
-                      id: idrandom, // Genera un ID aleatorio para el post
-                      content: story
-                    };
-                    generateImagesFromPrompt(idrandom, story, tema.color);
-                    subtemaObject.posts.push(post);
-                    
-                }
-                temaObject.subtemas.push(subtemaObject);
-                console.log(temaObject.subtemas)
+            if (tema.subtemas.length < temaConMenosSubtemas.subtemas.length) {
+                temaConMenosSubtemas = tema;
             }
-            result.push(temaObject);
         }
-        console.log("Resultados json:")
-        console.log(result)
-        
-        await fs.writeFile('temasConHistoriasV2.json', JSON.stringify(result, null, 2), 'utf8');
+
+        // Elegir un subtema al azar del tema con menos subtemas
+        const subtemaAleatorio = temaConMenosSubtemas.subtemas[Math.floor(Math.random() * temaConMenosSubtemas.subtemas.length)];
+
+        // Crear objeto para el resultado
+        let resultado = {
+            tema: temaConMenosSubtemas.nombre,
+            subtemas: [
+                {
+                    subtema: subtemaAleatorio,
+                    posts: []
+                }
+            ]
+        };
+
+        // Generar publicaciones para el subtema seleccionado
+        for (let i = 0; i < qttPosts; i++) {
+            let idrandom = generateRandomString(10);
+            const story = await generateStory(temaConMenosSubtemas.nombre, subtemaAleatorio.nombre);
+            const post = {
+                id: idrandom, // Genera un ID aleatorio para el post
+                content: story
+            };
+            generateImagesFromPrompt(idrandom, story, temaConMenosSubtemas.color);
+            resultado.subtemas[0].posts.push(post);
+        }
+        removeSubtema(temaConMenosSubtemas.nombre, subtemaAleatorio.nombre)
+        console.log("Resultados json:");
+        console.log(resultado);
+
+        // Guardar el resultado en un nuevo archivo
+        await fs.writeFile('temasConHistoriasV2.json', JSON.stringify(resultado, null, 2), 'utf8');
     } catch (error) {
         console.error("Error al leer o procesar el archivo JSON:", error);
     }
 }
+
+
+function removeSubtema(temaPrincipal, subtemaNombre) {
+    // Leer el archivo JSON
+    const data = fs.readFileSync("./topicsandsubtopics.json", 'utf8');
+    const temas = JSON.parse(data);
+
+    // Encuentra el tema principal en el array
+    const tema = temas.find(t => t.nombre === temaPrincipal);
+    
+    if (!tema) {
+        console.log("Tema principal no encontrado.");
+        return;
+    }
+
+    // Filtra los subtemas para excluir el que coincide con subtemaNombre
+    tema.subtemas = tema.subtemas.filter(st => st.nombre !== subtemaNombre);
+    fs.writeFileSync("./topicsandsubtopics.json", JSON.stringify(temas, null, 2));
+
+}
+
 
 
 /**
