@@ -3,8 +3,9 @@ name: Issue Title Contains Trigger and Node.js Script Execution
 on:
   issues:
     types: [opened, edited]
+  workflow_dispatch: # Permite ejecutar el flujo de trabajo manualmente
   schedule:
-    - cron: '0 */6 * * *' # This schedules the workflow every 3 hours
+    - cron: '0 */6 * * *' # Se ejecuta cada 6 horas
 
 jobs:
   check-issue-and-run-script:
@@ -14,7 +15,7 @@ jobs:
       ACCES_TOKEN: ${{ secrets.ACCES_TOKEN }}
       GACTIONS_ACCESTOKEN: ${{ secrets.GACTIONS_ACCESTOKEN }}
       SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-    if: github.event_name == 'issues' && github.event.action == 'opened'
+    if: github.event_name == 'issues' && github.event.action == 'opened' || github.event_name == 'workflow_dispatch'
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
