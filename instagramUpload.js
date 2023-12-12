@@ -9,7 +9,7 @@ require('dotenv').config();
 const branch = execSync('git branch --show-current').toString().trim();
 const igUserId = process.env.ONLYHABITS_ID;
 const token = process.env.ACCES_TOKEN;
-const jsonFilePath = 'temasConHistoriasV2.json'; // Ruta al archivo JSON
+const jsonFilePath = './temasConHistoriasV2.json'; // Ruta al archivo JSON
 const imagesFolderPath = '/imagenes/'; // Ruta a la carpeta de imágenes
 
 async function createContainer(imageUrl, caption) {
@@ -52,7 +52,7 @@ async function main() {
     try {
         const postData = await fs.readFile(jsonFilePath, 'utf8');
         const posts = JSON.parse(postData);
-
+        console.log(posts)
         for (const tema of posts) {
             for (const subtema of tema.subtemas) {
                 for (const post of subtema.posts) {
