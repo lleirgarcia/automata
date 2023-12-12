@@ -82,7 +82,6 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
             tema: temaConMenosSubtemas.nombre,
             subtemas: [
                 {
-                    subtema: subtemaAleatorio,
                     posts: []
                 }
             ]
