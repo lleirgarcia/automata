@@ -99,7 +99,7 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
                 id: idrandom, // Genera un ID aleatorio para el post
                 content: story
             };
-            generateImagesFromPrompt(idrandom, story, tema.subtemaAleatorio.nombre.color);
+            generateImagesFromPrompt(idrandom, story, tema.subtemaAleatorio.color);
             resultado.subtemas[0].posts.push(post);
         }
         removeSubtema(temas, tema.temaConMasSubtemas, tema.subtemaAleatorio.nombre)
