@@ -42,6 +42,7 @@ async function generateStory(theme, subtheme) {
                     Dejalo limpio de asteriscos que no aportan nada (**).
                     Dejalo limpio de comillas que no sirven (").`;
 
+                    console.log(prompt)
     try {
         const chatCompletion = await openai.chat.completions.create({
             messages: [{ role: "user", content: prompt }],
@@ -90,6 +91,8 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
         // Generar publicaciones para el subtema seleccionado
         for (let i = 0; i < qttPosts; i++) {
             let idrandom = generateRandomString(10);
+            console.log("tema: " + temaConMenosSubtemas.nombre)
+            console.log("subtema: " + subtemaAleatorio.nombre)
             const story = await generateStory(temaConMenosSubtemas.nombre, subtemaAleatorio.nombre);
             const post = {
                 id: idrandom, // Genera un ID aleatorio para el post
@@ -98,7 +101,7 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
             generateImagesFromPrompt(idrandom, story, temaConMenosSubtemas.color);
             resultado.subtemas[0].posts.push(post);
         }
-        removeSubtema(temaConMenosSubtemas.nombre, subtemaAleatorio.nombre)
+        removeSubtema(temas, temaConMenosSubtemas.nombre, subtemaAleatorio.nombre)
         console.log("Resultados json:");
         console.log(resultado);
 
@@ -110,13 +113,10 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
 }
 
 
-function removeSubtema(temaPrincipal, subtemaNombre) {
-    // Leer el archivo JSON
-    const data = fs.readFileSync("./topicsandsubtopics.json", 'utf8');
-    const temas = JSON.parse(data);
+function removeSubtema(dataJson, temaPrincipal, subtemaNombre) {
 
     // Encuentra el tema principal en el array
-    const tema = temas.find(t => t.nombre === temaPrincipal);
+    const tema = dataJson.find(t => t.nombre === temaPrincipal);
     
     if (!tema) {
         console.log("Tema principal no encontrado.");
@@ -125,7 +125,7 @@ function removeSubtema(temaPrincipal, subtemaNombre) {
 
     // Filtra los subtemas para excluir el que coincide con subtemaNombre
     tema.subtemas = tema.subtemas.filter(st => st.nombre !== subtemaNombre);
-    fs.writeFileSync("./topicsandsubtopics.json", JSON.stringify(temas, null, 2));
+    fs.writeFile("topicsandsubtopics.json", JSON.stringify(dataJson, null, 2));
 }
 
 

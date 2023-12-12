@@ -1,15 +1,17 @@
-[
-  {
-    "tema": "1",
-    "subtemas": [
-      {
-        "posts": [
-          {
-            "id": "O79UqF3TR7",
-            "content": "\"🌟 Learning anything new can seem daunting at first but with the right steps, you can master even the most difficult tasks. Follow these steps to start your learning journey:\n\nStep 1️⃣: Research . Dive into the subject matter and read from multiple sources. Gather as much information as possible to have a solid foundation. 🔎\n\nStep 2️⃣: Practice, Practice, Practice 🏋️‍♀️. Use the information derived from your research and attempt to practically apply it. Remember, practice makes perfect. \n\nStep 3️⃣: Review and Reflect 🔄. Evaluate your progress periodically. Are you getting better? If not, identify the areas of improvement. Maybe you need to spend more time on research or practice. \n\nStep 4️⃣: Seek Guidance 🙋‍♀️. Don't hesitate to ask for help or guidance if you're struggling. There are numerous resources available online like discussion forums, tutorial videos, etc.\n\nStep 5️⃣: Persistence is key 🔑. Be patient with your learning process. Remember that everyone learns at their own pace. \n\nRemember, this is a journey and every step counts 🚀.\"\n\n"
-          }
-        ]
-      }
-    ]
-  }
-]
+{
+  "tema": "Motivación",
+  "subtemas": [
+    {
+      "subtema": {
+        "nombre": "Fijación de metas realistas",
+        "color": "naranja"
+      },
+      "posts": [
+        {
+          "id": "yXpu671efR",
+          "content": "How to Set Realistic Goals in 4 Easy Steps 🎯✨\n\nStep ☝️🏽: Define what you want ⏳\nStart with clarity. What do you truly want to achieve? Instead of vague ideas, be specific with your goals. For example: \"I want to lose 10 pounds in 3 months\" or \"I want to save $5,000 by the end of the year.\"\n\nStep ✌🏽: Make sure it's attainable 🎈 \nImagine the steps you need to take. If they seem overwhelming or out of reach, break your goal down into smaller, more manageable sub-goals. \n\nStep 🤟🏽: Create an action plan 💡\nEvery goal needs a strategy. Outline what you are willing to do daily, weekly, or monthly to reach your target. Remember, achieving goals is a journey, not a sprint.\n\nStep 🖖🏽: Adapt and adjust 🌈\nRealize that progress is not always linear. You may need to adjust your strategy based on the results you're seeing. Embrace the process and the learning that comes with it.\n\nAnd voilà! Your realistic goal-setting journey has begun. 🔝💫 Thank yourself later when you see the magic unfold. On to success! 🚀💥"
+        }
+      ]
+    }
+  ]
+}

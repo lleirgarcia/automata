@@ -1,161 +1,572 @@
 [
-    {
-        "nombre": "Desarrollo Personal",
-        "color": "verde",
-        "subtemas": [
-            {"nombre": "Técnicas de relajación", "color": "verde"},
-            {"nombre": "Manejo de la presión social", "color": "verde"},
-            {"nombre": "Cultivar la gratitud", "color": "verde"},
-            {"nombre": "Desarrollo de la asertividad", "color": "verde"},
-            {"nombre": "Entrenamiento en habilidades sociales", "color": "verde"},
-            {"nombre": "Gestión del éxito y el fracaso", "color": "verde"},
-            {"nombre": "Fomento de la autoaceptación", "color": "verde"},
-            {"nombre": "Desarrollo de la resolución de problemas", "color": "verde"},
-            {"nombre": "Fomento de la independencia emocional", "color": "verde"},
-            {"nombre": "Gestión del diálogo interno", "color": "verde"},
-            {"nombre": "Construcción de relaciones significativas", "color": "verde"},
-            {"nombre": "Mejora de la autoimagen", "color": "verde"},
-            {"nombre": "Desarrollo de la paciencia estratégica", "color": "verde"},
-            {"nombre": "Afrontamiento de la vulnerabilidad", "color": "verde"},
-            {"nombre": "Gestión del miedo al fracaso", "color": "verde"},
-            {"nombre": "Fomento de la responsabilidad personal", "color": "verde"},
-            {"nombre": "Desarrollo de la escucha activa", "color": "verde"},
-            {"nombre": "Cultivo de la empatía profunda", "color": "verde"},
-            {"nombre": "Mejora de la toma de decisiones", "color": "verde"},
-            {"nombre": "Fomento del pensamiento independiente", "color": "verde"},
-            {"nombre": "Autoconocimiento", "color": "verde"},
-            {"nombre": "Gestión del tiempo", "color": "verde"},
-            {"nombre": "Habilidades de comunicación", "color": "verde"},
-            {"nombre": "Pensamiento crítico", "color": "verde"},
-            {"nombre": "Creatividad e innovación", "color": "verde"},
-            {"nombre": "Liderazgo y gestión", "color": "verde"},
-            {"nombre": "Inteligencia emocional", "color": "verde"},
-            {"nombre": "Superación de obstáculos", "color": "verde"},
-            {"nombre": "Hábitos saludables", "color": "verde"},
-            {"nombre": "Mindfulness y meditación", "color": "verde"},
-            {"nombre": "Networking y relaciones", "color": "verde"},
-            {"nombre": "Gestión de conflictos", "color": "verde"},
-            {"nombre": "Resiliencia y adaptación", "color": "verde"},
-            {"nombre": "Planificación de metas", "color": "verde"},
-            {"nombre": "Aprendizaje continuo", "color": "verde"},
-            {"nombre": "Autodisciplina", "color": "verde"},
-            {"nombre": "Trabajo en equipo", "color": "verde"},
-            {"nombre": "Balance vida-trabajo", "color": "verde"},
-            {"nombre": "Desarrollo de carrera", "color": "verde"},
-            {"nombre": "Empatía y compasión", "color": "verde"},
-            {"nombre": "Gestión de la ansiedad", "color": "verde"},
-            {"nombre": "Cultura de la positividad", "color": "verde"},
-            {"nombre": "Manejo de la frustración", "color": "verde"},
-            {"nombre": "Estrategias de aprendizaje", "color": "verde"},
-            {"nombre": "Desarrollo de habilidades blandas", "color": "verde"},
-            {"nombre": "Gestión de la energía personal", "color": "verde"},
-            {"nombre": "Desarrollo de la creatividad", "color": "verde"},
-            {"nombre": "Fortalecimiento de la concentración", "color": "verde"},
-            {"nombre": "Comunicación no verbal", "color": "verde"},
-            {"nombre": "Desarrollo del pensamiento estratégico", "color": "verde"},
-            {"nombre": "Gestión de la diversidad", "color": "verde"},
-            {"nombre": "Desarrollo de la inteligencia social", "color": "verde"},
-            {"nombre": "Manejo de la incertidumbre", "color": "verde"},
-            {"nombre": "Crecimiento espiritual", "color": "verde"},
-            {"nombre": "Construcción de la identidad personal", "color": "verde"},
-            {"nombre": "Desarrollo de la autenticidad", "color": "verde"},
-            {"nombre": "Fomento de la tolerancia", "color": "verde"},
-            {"nombre": "Desarrollo de la paciencia", "color": "verde"},
-            {"nombre": "Gestión del cambio", "color": "verde"},
-            {"nombre": "Fomento de la curiosidad", "color": "verde"}
-        ]
-    },
-    {
-        "nombre": "Motivación",
-        "color": "naranja",
-        "subtemas": [
-            {"nombre": "Fijación de objetivos", "color": "naranja"},
-            {"nombre": "Autoestima y confianza", "color": "naranja"},
-            {"nombre": "Superación personal", "color": "naranja"},
-            {"nombre": "Visualización y metas", "color": "naranja"},
-            {"nombre": "Inspiración diaria", "color": "naranja"},
-            {"nombre": "Actitud positiva", "color": "naranja"},
-            {"nombre": "Historias de éxito", "color": "naranja"},
-            {"nombre": "Encontrar la pasión", "color": "naranja"},
-            {"nombre": "Resistencia y tenacidad", "color": "naranja"},
-            {"nombre": "Mentalidad de crecimiento", "color": "naranja"},
-            {"nombre": "Optimismo práctico", "color": "naranja"},
-            {"nombre": "Rutinas motivacionales", "color": "naranja"},
-            {"nombre": "Desafíos y logros", "color": "naranja"},
-            {"nombre": "Empoderamiento personal", "color": "naranja"},
-            {"nombre": "Mantener la motivación", "color": "naranja"},
-            {"nombre": "Innovación y cambio", "color": "naranja"},
-            {"nombre": "Perspectiva y actitud", "color": "naranja"},
-            {"nombre": "Afrontar el miedo", "color": "naranja"},
-            {"nombre": "Gestión del fracaso", "color": "naranja"},
-            {"nombre": "Celebrar pequeños éxitos", "color": "naranja"},
-            {"nombre": "Superación de obstáculos", "color": "naranja"},
-            {"nombre": "Motivación intrínseca", "color": "naranja"},
-            {"nombre": "Visualización de metas", "color": "naranja"},
-            {"nombre": "Inspiración diaria", "color": "naranja"},
-            {"nombre": "Energía y vitalidad", "color": "naranja"},
-            {"nombre": "Enfoque en el éxito", "color": "naranja"},
-            {"nombre": "Gratitud", "color": "naranja"},
-            {"nombre": "Empoderamiento", "color": "naranja"},
-            {"nombre": "Desarrollo de la pasión", "color": "naranja"},
-            {"nombre": "Persistencia", "color": "naranja"},
-            {"nombre": "Optimismo", "color": "naranja"},
-            {"nombre": "Iniciativa personal", "color": "naranja"},
-            {"nombre": "Celebración de logros", "color": "naranja"},
-            {"nombre": "Superación del miedo", "color": "naranja"},
-            {"nombre": "Actitud proactiva", "color": "naranja"},
-            {"nombre": "Fijación de metas realistas", "color": "naranja"},
-            {"nombre": "Influencias positivas", "color": "naranja"},
-            {"nombre": "Autonomía y libertad", "color": "naranja"},
-            {"nombre": "Disciplina mental", "color": "naranja"},
-            {"nombre": "Compromiso y dedicación", "color": "naranja"}
-        ]
-    },
-    {
-        "nombre": "Dinero",
-        "color": "azul",
-        "subtemas": [
-            {"nombre": "Inversión inteligente", "color": "azul"},
-            {"nombre": "Ahorro para el futuro", "color": "azul"},
-            {"nombre": "Educación financiera", "color": "azul"},
-            {"nombre": "Presupuestos personales", "color": "azul"},
-            {"nombre": "Planificación de jubilación", "color": "azul"},
-            {"nombre": "Mercados financieros", "color": "azul"},
-            {"nombre": "Gestión de deudas", "color": "azul"},
-            {"nombre": "Emprendimiento y finanzas", "color": "azul"},
-            {"nombre": "Ingresos pasivos", "color": "azul"},
-            {"nombre": "Fiscalidad y tributación", "color": "azul"},
-            {"nombre": "Inflación y economía", "color": "azul"},
-            {"nombre": "Criptomonedas", "color": "azul"},
-            {"nombre": "Seguros y protección", "color": "azul"},
-            {"nombre": "Banca y finanzas", "color": "azul"},
-            {"nombre": "Inversiones en bienes raíces", "color": "azul"},
-            {"nombre": "Gestión de riesgos financieros", "color": "azul"},
-            {"nombre": "Finanzas sostenibles", "color": "azul"},
-            {"nombre": "Economía global", "color": "azul"},
-            {"nombre": "Crowdfunding", "color": "azul"},
-            {"nombre": "E-commerce y finanzas", "color": "azul"},
-            {"nombre": "Gestión de deudas", "color": "azul"},
-            {"nombre": "Inversión en acciones", "color": "azul"},
-            {"nombre": "Planificación de jubilación", "color": "azul"},
-            {"nombre": "Educación sobre criptomonedas", "color": "azul"},
-            {"nombre": "Optimización de gastos", "color": "azul"},
-            {"nombre": "Generación de ingresos alternativos", "color": "azul"},
-            {"nombre": "Inversión en fondos mutuos", "color": "azul"},
-            {"nombre": "Gestión de patrimonio", "color": "azul"},
-            {"nombre": "Planificación fiscal", "color": "azul"},
-            {"nombre": "Comercio de divisas (Forex)", "color": "azul"},
-            {"nombre": "Microinversiones", "color": "azul"},
-            {"nombre": "Estrategias de ahorro", "color": "azul"},
-            {"nombre": "Finanzas para autónomos", "color": "azul"},
-            {"nombre": "Seguridad financiera", "color": "azul"},
-            {"nombre": "Banca digital", "color": "azul"},
-            {"nombre": "Inversión sostenible", "color": "azul"},
-            {"nombre": "Comercio electrónico", "color": "azul"},
-            {"nombre": "Planificación de emergencias financieras", "color": "azul"},
-            {"nombre": "Gestión de activos", "color": "azul"},
-            {"nombre": "Finanzas comportamentales", "color": "azul"}
-            
-        ]
-    }
+  {
+    "nombre": "Desarrollo Personal",
+    "color": "verde",
+    "subtemas": [
+      {
+        "nombre": "Técnicas de relajación",
+        "color": "verde"
+      },
+      {
+        "nombre": "Manejo de la presión social",
+        "color": "verde"
+      },
+      {
+        "nombre": "Cultivar la gratitud",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de la asertividad",
+        "color": "verde"
+      },
+      {
+        "nombre": "Entrenamiento en habilidades sociales",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión del éxito y el fracaso",
+        "color": "verde"
+      },
+      {
+        "nombre": "Fomento de la autoaceptación",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de la resolución de problemas",
+        "color": "verde"
+      },
+      {
+        "nombre": "Fomento de la independencia emocional",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión del diálogo interno",
+        "color": "verde"
+      },
+      {
+        "nombre": "Construcción de relaciones significativas",
+        "color": "verde"
+      },
+      {
+        "nombre": "Mejora de la autoimagen",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de la paciencia estratégica",
+        "color": "verde"
+      },
+      {
+        "nombre": "Afrontamiento de la vulnerabilidad",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión del miedo al fracaso",
+        "color": "verde"
+      },
+      {
+        "nombre": "Fomento de la responsabilidad personal",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de la escucha activa",
+        "color": "verde"
+      },
+      {
+        "nombre": "Cultivo de la empatía profunda",
+        "color": "verde"
+      },
+      {
+        "nombre": "Mejora de la toma de decisiones",
+        "color": "verde"
+      },
+      {
+        "nombre": "Fomento del pensamiento independiente",
+        "color": "verde"
+      },
+      {
+        "nombre": "Autoconocimiento",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión del tiempo",
+        "color": "verde"
+      },
+      {
+        "nombre": "Habilidades de comunicación",
+        "color": "verde"
+      },
+      {
+        "nombre": "Pensamiento crítico",
+        "color": "verde"
+      },
+      {
+        "nombre": "Creatividad e innovación",
+        "color": "verde"
+      },
+      {
+        "nombre": "Liderazgo y gestión",
+        "color": "verde"
+      },
+      {
+        "nombre": "Inteligencia emocional",
+        "color": "verde"
+      },
+      {
+        "nombre": "Superación de obstáculos",
+        "color": "verde"
+      },
+      {
+        "nombre": "Hábitos saludables",
+        "color": "verde"
+      },
+      {
+        "nombre": "Mindfulness y meditación",
+        "color": "verde"
+      },
+      {
+        "nombre": "Networking y relaciones",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión de conflictos",
+        "color": "verde"
+      },
+      {
+        "nombre": "Resiliencia y adaptación",
+        "color": "verde"
+      },
+      {
+        "nombre": "Planificación de metas",
+        "color": "verde"
+      },
+      {
+        "nombre": "Aprendizaje continuo",
+        "color": "verde"
+      },
+      {
+        "nombre": "Autodisciplina",
+        "color": "verde"
+      },
+      {
+        "nombre": "Trabajo en equipo",
+        "color": "verde"
+      },
+      {
+        "nombre": "Balance vida-trabajo",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de carrera",
+        "color": "verde"
+      },
+      {
+        "nombre": "Empatía y compasión",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión de la ansiedad",
+        "color": "verde"
+      },
+      {
+        "nombre": "Cultura de la positividad",
+        "color": "verde"
+      },
+      {
+        "nombre": "Manejo de la frustración",
+        "color": "verde"
+      },
+      {
+        "nombre": "Estrategias de aprendizaje",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de habilidades blandas",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión de la energía personal",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de la creatividad",
+        "color": "verde"
+      },
+      {
+        "nombre": "Fortalecimiento de la concentración",
+        "color": "verde"
+      },
+      {
+        "nombre": "Comunicación no verbal",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo del pensamiento estratégico",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión de la diversidad",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de la inteligencia social",
+        "color": "verde"
+      },
+      {
+        "nombre": "Manejo de la incertidumbre",
+        "color": "verde"
+      },
+      {
+        "nombre": "Crecimiento espiritual",
+        "color": "verde"
+      },
+      {
+        "nombre": "Construcción de la identidad personal",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de la autenticidad",
+        "color": "verde"
+      },
+      {
+        "nombre": "Fomento de la tolerancia",
+        "color": "verde"
+      },
+      {
+        "nombre": "Desarrollo de la paciencia",
+        "color": "verde"
+      },
+      {
+        "nombre": "Gestión del cambio",
+        "color": "verde"
+      },
+      {
+        "nombre": "Fomento de la curiosidad",
+        "color": "verde"
+      }
+    ]
+  },
+  {
+    "nombre": "Motivación",
+    "color": "naranja",
+    "subtemas": [
+      {
+        "nombre": "Fijación de objetivos",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Autoestima y confianza",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Superación personal",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Visualización y metas",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Inspiración diaria",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Actitud positiva",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Encontrar la pasión",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Resistencia y tenacidad",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Mentalidad de crecimiento",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Optimismo práctico",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Historias de éxito",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Desafíos y logros",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Empoderamiento personal",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Mantener la motivación",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Innovación y cambio",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Perspectiva y actitud",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Afrontar el miedo",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Gestión del fracaso",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Celebrar pequeños éxitos",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Superación de obstáculos",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Motivación intrínseca",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Visualización de metas",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Inspiración diaria",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Energía y vitalidad",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Enfoque en el éxito",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Gratitud",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Empoderamiento",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Desarrollo de la pasión",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Persistencia",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Optimismo",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Iniciativa personal",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Celebración de logros",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Superación del miedo",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Actitud proactiva",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Influencias positivas",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Autonomía y libertad",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Disciplina mental",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Compromiso y dedicación",
+        "color": "naranja"
+      }
+    ]
+  },
+  {
+    "nombre": "Dinero",
+    "color": "azul",
+    "subtemas": [
+      {
+        "nombre": "Inversión inteligente",
+        "color": "azul"
+      },
+      {
+        "nombre": "Ahorro para el futuro",
+        "color": "azul"
+      },
+      {
+        "nombre": "Educación financiera",
+        "color": "azul"
+      },
+      {
+        "nombre": "Presupuestos personales",
+        "color": "azul"
+      },
+      {
+        "nombre": "Planificación de jubilación",
+        "color": "azul"
+      },
+      {
+        "nombre": "Mercados financieros",
+        "color": "azul"
+      },
+      {
+        "nombre": "Gestión de deudas",
+        "color": "azul"
+      },
+      {
+        "nombre": "Emprendimiento y finanzas",
+        "color": "azul"
+      },
+      {
+        "nombre": "Ingresos pasivos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Fiscalidad y tributación",
+        "color": "azul"
+      },
+      {
+        "nombre": "Inflación y economía",
+        "color": "azul"
+      },
+      {
+        "nombre": "Criptomonedas",
+        "color": "azul"
+      },
+      {
+        "nombre": "Seguros y protección",
+        "color": "azul"
+      },
+      {
+        "nombre": "Banca y finanzas",
+        "color": "azul"
+      },
+      {
+        "nombre": "Inversiones en bienes raíces",
+        "color": "azul"
+      },
+      {
+        "nombre": "Gestión de riesgos financieros",
+        "color": "azul"
+      },
+      {
+        "nombre": "Finanzas sostenibles",
+        "color": "azul"
+      },
+      {
+        "nombre": "Economía global",
+        "color": "azul"
+      },
+      {
+        "nombre": "Crowdfunding",
+        "color": "azul"
+      },
+      {
+        "nombre": "E-commerce y finanzas",
+        "color": "azul"
+      },
+      {
+        "nombre": "Gestión de deudas",
+        "color": "azul"
+      },
+      {
+        "nombre": "Inversión en acciones",
+        "color": "azul"
+      },
+      {
+        "nombre": "Planificación de jubilación",
+        "color": "azul"
+      },
+      {
+        "nombre": "Educación sobre criptomonedas",
+        "color": "azul"
+      },
+      {
+        "nombre": "Optimización de gastos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Generación de ingresos alternativos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Inversión en fondos mutuos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Gestión de patrimonio",
+        "color": "azul"
+      },
+      {
+        "nombre": "Planificación fiscal",
+        "color": "azul"
+      },
+      {
+        "nombre": "Comercio de divisas (Forex)",
+        "color": "azul"
+      },
+      {
+        "nombre": "Microinversiones",
+        "color": "azul"
+      },
+      {
+        "nombre": "Estrategias de ahorro",
+        "color": "azul"
+      },
+      {
+        "nombre": "Finanzas para autónomos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Seguridad financiera",
+        "color": "azul"
+      },
+      {
+        "nombre": "Banca digital",
+        "color": "azul"
+      },
+      {
+        "nombre": "Inversión sostenible",
+        "color": "azul"
+      },
+      {
+        "nombre": "Comercio electrónico",
+        "color": "azul"
+      },
+      {
+        "nombre": "Planificación de emergencias financieras",
+        "color": "azul"
+      },
+      {
+        "nombre": "Gestión de activos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Finanzas comportamentales",
+        "color": "azul"
+      }
+    ]
+  }
 ]
