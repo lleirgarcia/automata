@@ -1,5 +1,6 @@
 const { OpenAI } = require("openai");
 const { generateImagesFromPrompt } = require("./generateImageFromPost");
+const { colorHandle } = require("./lastColorHandle");
 const fs = require('fs').promises;
 require('dotenv').config({ path: './openai.env' });
 require('dotenv').config();
@@ -60,13 +61,13 @@ async function generateStory(theme, subtheme) {
  * Construye el objeto de resultados basado en los temas y subtemas.
  * @returns {Promise<void>}
  */
-async function generatePostsWithTextAndImages(qttPosts, filePath) {
+async function generatePostsWithTextAndImages(qttPosts, filePath, temaSubTema, ultimoColor) {
     console.log("...Reading JSON to create posts by JSON...")
     try {
         const data = await fs.readFile(filePath, 'utf8');
         const temas = JSON.parse(data);
         var result = [];
-
+        let colorH = colorHandle.proximoColor(ultimoColor);
         // Encontrar el tema con menos subtemas
         // let temaConMenosSubtemas = temas[0];
         // for (const tema of temas) {
@@ -78,7 +79,10 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
         // Elegir un subtema al azar del tema con menos subtemas
         // const subtemaAleatorio = temaConMenosSubtemas.subtemas[Math.floor(Math.random() * temaConMenosSubtemas.subtemas.length)];
 
-        let tema = obtenerSubtemaAleatorio(temas);
+        let tema = obtenerSubtemaAleatorio(temas, colorH);
+        console.log(colorH)
+        console.log(tema)
+process.exit(1)
         // Crear objeto para el resultado
         let resultado = {
             tema: tema.temaConMasSubtemas,
@@ -112,21 +116,29 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
     }
 }
 
-function obtenerSubtemaAleatorio(data) {
-    // Encontrar el tema con la mayor cantidad de subtemas
-    let temaConMasSubtemas = data.reduce((prev, current) => 
-        (prev.subtemas.length > current.subtemas.length) ? prev : current
-    );
+function encontrarSubtemaAleatorioPorColor(data, color) {
+  // Filtrar temas por color
+  let temasFiltrados = data.filter(tema => tema.color === color);
+  let mainTopic;  
+  // Recoger todos los subtemas del color especificado
+  let subtemas = [];
+  temasFiltrados.forEach(tema => {
+    subtemas.push(...tema.subtemas.filter(subtema => subtema.color === color));
+    mainTopic = tema;
+  });
 
-    // Elegir un subtema aleatorio de ese tema
-    let subtemas = temaConMasSubtemas.subtemas;
+  // Elegir un subtema aleatorio
+  if (subtemas.length > 0) {
     let subtemaAleatorio = subtemas[Math.floor(Math.random() * subtemas.length)];
-
     return {
-        temaConMasSubtemas: temaConMasSubtemas.nombre,
+        temaConMasSubtemas: tema.nombre,
         subtemaAleatorio: subtemaAleatorio
     };
+  } else {
+    return null;
+  }
 }
+
 
 
 
@@ -194,16 +206,17 @@ function removeSubtema(dataJson, temaPrincipal, subtemaNombre) {
 // }
 
 // Función principal que se ejecuta al iniciar el script
-async function main(filePath, postNumberBySubTopic, temaSubtema) {
+async function main(filePath, postNumberBySubTopic, temaSubtema, ultimoColor) {
     console.log("dentro el script")
     console.log("args filepath: " + filePath)
     console.log("args  posts: " + postNumberBySubTopic)
     console.log("args temas subtema: " + temaSubtema)
+    console.log("ultimo color: " + ultimoColor)
 
     let json = filePath != undefined && temaSubtema == undefined
     console.log("is: " + json)
     if(json) {
-        await generatePostsWithTextAndImages(postNumberBySubTopic, filePath);
+        await generatePostsWithTextAndImages(postNumberBySubTopic, filePath, temaSubtema, ultimoColor);
     } 
     // else {
     //     await generatePostsWithTextAndImages(temaSubtema);
@@ -214,8 +227,9 @@ async function main(filePath, postNumberBySubTopic, temaSubtema) {
 const jsonFilePath = process.argv[2] || 'topicsandsubtopics.json';
 const postNumberBySubTopic = process.argv[3] || process.env.NUM_POSTS_PER_TOPIC;
 const temaSubtema = process.argv[4];
+const ultimoColor = process.argv[5];
 
 // Manejo de errores en la función principal
-main(jsonFilePath, postNumberBySubTopic, temaSubtema).catch(console.error)
+main(jsonFilePath, postNumberBySubTopic, temaSubtema, ultimoColor).catch(console.error)
 
 exports.generateStory = generateStory;
