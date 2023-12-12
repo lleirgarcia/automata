@@ -78,14 +78,14 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
         const subtemaAleatorio = temaConMenosSubtemas.subtemas[Math.floor(Math.random() * temaConMenosSubtemas.subtemas.length)];
 
         // Crear objeto para el resultado
-        let resultado = {
+        let resultado = [{
             tema: temaConMenosSubtemas.nombre,
             subtemas: [
                 {
                     posts: []
                 }
             ]
-        };
+        }];
 
         // Generar publicaciones para el subtema seleccionado
         for (let i = 0; i < qttPosts; i++) {

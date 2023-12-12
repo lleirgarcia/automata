@@ -51,7 +51,7 @@ async function main() {
     await pushImagesToRepo();
     try {
         const postData = await fs.readFile(jsonFilePath, 'utf8');
-        const posts = JSON.parse(postData);
+        const posts = await JSON.parse(postData);
         console.log(posts)
         for (const tema of posts) {
             for (const subtema of tema.subtemas) {
