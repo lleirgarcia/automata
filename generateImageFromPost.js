@@ -17,8 +17,11 @@ function prepareTextForAPrompt(post) {
   let isHumanInImage = process.env.IMAGEN_CON_HUMANOS;
   let currentPost;
 
-  if(!isHumanInImage)
-    removeSteps = `${removeSteps} Ademas, intenta que en la historia no salga un humano, persona o ser vivo. Necesito una historia abstracta que tenga que ver con el post. Intenta tambien no poner mayusculas en palabras que ya estan dentro de una frase, dejalas en minusculas a no ser que sea necesario. Ademas, intenta que las imagenes esten libres de letras o carteles. Si sale un humano, que sea europeo.`; 
+  if(!isHumanInImage) {
+    removeSteps = `${removeSteps} Ademas, intenta que en la historia no salga un humano, persona o ser vivo. Necesito una historia abstracta que tenga que ver con el post.`; 
+  } else {
+    removeSteps = `${removeSteps} Ademas, intenta que las imagenes esten libres de letras o carteles. Si sale un humano, que sea europeo. Que salga solamente 1 humano y no mas de uno.`;
+  }
 
   if(post)
       currentPost = post

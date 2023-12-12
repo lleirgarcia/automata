@@ -41,7 +41,8 @@ async function generateStory(theme, subtheme) {
                     En el caso de que enumeres puntos o pasos (1, 2, 3), utiliza los emojis de watsapp, solamente 1 al principio del todo y enumera los pasos como "step 1, step 2, etc".
                     Si hablas de pasos deja solo la palabra "step" y el numero en emoji al que toque. No añadas extras
                     Dejalo limpio de asteriscos que no aportan nada (**).
-                    Dejalo limpio de comillas que no sirven (").`;
+                    Dejalo limpio de comillas que no sirven (").
+                    Intenta tambien no poner mayusculas en palabras que ya estan dentro de una frase, dejalas en minusculas a no ser que sea necesario.`;
 
                     console.log(prompt)
     try {
@@ -118,7 +119,7 @@ function encontrarSubtemaAleatorioPorColor(data, color) {
     subtemas.push(...tema.subtemas.filter(subtema => subtema.color === color));
     mainTopic = tema;
   });
-  
+
   // Elegir un subtema aleatorio
   if (subtemas.length > 0) {
     let subtemaAleatorio = subtemas[Math.floor(Math.random() * subtemas.length)];
