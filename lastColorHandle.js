@@ -16,7 +16,7 @@ function guardarUltimoColor(color) {
 
 // Función para determinar el próximo color
 function proximoColor(ultimoColor) {
-    const secuencia = ['verde', 'naranja', 'azul'];
+    const secuencia = ['naranja', 'verde','azul'];
     let indice = secuencia.indexOf(ultimoColor);
     let proximoIndice = (indice + 1) % secuencia.length;
     return secuencia[proximoIndice];
@@ -30,6 +30,6 @@ console.log(`Publicar post con color: ${colorParaPublicar}`);
 
 // Simular publicación y luego actualizar el archivo de estado
 // Aquí iría tu lógica de publicación
-guardarUltimoColor(colorParaPublicar);
+// guardarUltimoColor(colorParaPublicar);
 
 exports.proximoColor = proximoColor;

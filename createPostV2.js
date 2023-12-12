@@ -1,6 +1,6 @@
 const { OpenAI } = require("openai");
 const { generateImagesFromPrompt } = require("./generateImageFromPost");
-const { colorHandle } = require("./lastColorHandle");
+const { proximoColor } = require("./lastColorHandle").proximoColor;
 const fs = require('fs').promises;
 require('dotenv').config({ path: './openai.env' });
 require('dotenv').config();
@@ -67,7 +67,8 @@ async function generatePostsWithTextAndImages(qttPosts, filePath, temaSubTema, u
         const data = await fs.readFile(filePath, 'utf8');
         const temas = JSON.parse(data);
         var result = [];
-        let colorH = colorHandle.proximoColor(ultimoColor);
+        let colorH = proximoColor(ultimoColor);
+        console.log("prox color: " + colorH)
         // Encontrar el tema con menos subtemas
         // let temaConMenosSubtemas = temas[0];
         // for (const tema of temas) {
