@@ -15,7 +15,6 @@ jobs:
       ACCES_TOKEN: ${{ secrets.ACCES_TOKEN }}
       GACTIONS_ACCESTOKEN: ${{ secrets.GACTIONS_ACCESTOKEN }}
       SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-    if: github.event_name == 'issues' && github.event.action == 'opened' || github.event_name == 'workflow_dispatch'
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -40,23 +39,19 @@ jobs:
           ADDITIONAL_TEXT=$(echo "$ISSUE_TITLE" | sed "s/.*$KEYWORD//")
           echo "Texto clave $ADDITIONAL_TEXT"
           echo "ADDITIONAL_TEXT=$ADDITIONAL_TEXT" >> $GITHUB_ENV
-          echo $GITHUB_ENV
-          echo "TITLE_CONTAINS=true" >> $GITHUB_ENV
         else
-          echo "El título del issue no contiene el texto clave. Terminando el workflow..."
-          echo "TITLE_CONTAINS=false" >> $GITHUB_ENV
+          echo "El título del issue no contiene el texto clave."
+          ADDITIONAL_TEXT=""
+          echo "ADDITIONAL_TEXT=$ADDITIONAL_TEXT" >> $GITHUB_ENV
         fi
 
     - name: Set up Node.js
-      if: env.TITLE_CONTAINS == 'true'
       uses: actions/setup-node@v2
       with:
         node-version: '16'
 
     - name: Install dependencies
-      if: env.TITLE_CONTAINS == 'true'
       run: npm install
 
     - name: Run Node.js script with additional text
-      if: env.TITLE_CONTAINS == 'true'
       run: node createPostV2.js topicsandsubtopics.json 1 "$ADDITIONAL_TEXT" && node instagramUpload.js
