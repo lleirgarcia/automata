@@ -211,10 +211,6 @@ async function main(filePath, postNumberBySubTopic, temaSubtema, ultimoColor) {
     if(json) {
         await generatePostsWithTextAndImages(postNumberBySubTopic, filePath, temaSubtema, ultimoColor);
     } 
-    // else {
-    //     await generatePostsWithTextAndImages(temaSubtema);
-    // }
-    
 }
 
 const jsonFilePath = process.argv[2] || 'topicsandsubtopics.json';
