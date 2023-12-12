@@ -37,8 +37,8 @@ async function generateStory(theme, subtheme) {
                     Recuerda que son posts para instagram, así que ponlos bonitos. Por favor, no me añadas imagenes tipo. 
                     Escribemelo en ${process.env.IDIOMA}.
                     En tu contestacion, escribeme unicamente los pasos o la descripcion que añadirias al post, nada de "Sure, I'd be happy to assist. Here's a suggestion for a post" ni enumeracion de posts ni nada por el estilo, solamente el texto que copiaré y pegaré para su uso.
-                    En el caso de que enumeres puntos (1, 2, 3), utiliza los emojis de watsapp.
-                    Si hablas de pasos deja solo la palabra "step" y el numero en emoji al que toque.
+                    En el caso de que enumeres puntos o pasos (1, 2, 3), utiliza los emojis de watsapp, solamente 1 al principio del todo y enumera los pasos como "step 1, step 2, etc".
+                    Si hablas de pasos deja solo la palabra "step" y el numero en emoji al que toque. No añadas extras
                     Dejalo limpio de asteriscos que no aportan nada (**).
                     Dejalo limpio de comillas que no sirven (").`;
 
