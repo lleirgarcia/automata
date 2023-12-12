@@ -65,6 +65,7 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
     try {
         const data = await fs.readFile(filePath, 'utf8');
         const temas = JSON.parse(data);
+        var result = [];
 
         // Encontrar el tema con menos subtemas
         let temaConMenosSubtemas = temas[0];
@@ -78,14 +79,14 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
         const subtemaAleatorio = temaConMenosSubtemas.subtemas[Math.floor(Math.random() * temaConMenosSubtemas.subtemas.length)];
 
         // Crear objeto para el resultado
-        let resultado = [{
+        let resultado = {
             tema: temaConMenosSubtemas.nombre,
             subtemas: [
                 {
                     posts: []
                 }
             ]
-        }];
+        };
 
         // Generar publicaciones para el subtema seleccionado
         for (let i = 0; i < qttPosts; i++) {
@@ -101,11 +102,10 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
             resultado.subtemas[0].posts.push(post);
         }
         removeSubtema(temas, temaConMenosSubtemas.nombre, subtemaAleatorio.nombre)
-        console.log("Resultados json:");
-        console.log(resultado);
+        result.push(resultado)
 
         // Guardar el resultado en un nuevo archivo
-        await fs.writeFile('temasConHistoriasV2.json', JSON.stringify(resultado, null, 2), 'utf8');
+        await fs.writeFile('temasConHistoriasV2.json', JSON.stringify(result, null, 2), 'utf8');
     } catch (error) {
         console.error("Error al leer o procesar el archivo JSON:", error);
     }
