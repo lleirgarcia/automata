@@ -33,3 +33,4 @@ console.log(`Publicar post con color: ${colorParaPublicar}`);
 // guardarUltimoColor(colorParaPublicar);
 
 exports.proximoColor = proximoColor;
+exports.guardarUltimoColor = guardarUltimoColor;

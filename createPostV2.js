@@ -1,6 +1,6 @@
 const { OpenAI } = require("openai");
 const { generateImagesFromPrompt } = require("./generateImageFromPost");
-const { proximoColor } = require("./lastColorHandle").proximoColor;
+const { proximoColor, guardarUltimoColor } = require("./lastColorHandle");
 const fs = require('fs').promises;
 require('dotenv').config({ path: './openai.env' });
 require('dotenv').config();
@@ -67,23 +67,13 @@ async function generatePostsWithTextAndImages(qttPosts, filePath, temaSubTema, u
         const data = await fs.readFile(filePath, 'utf8');
         const temas = JSON.parse(data);
         var result = [];
+        
         let colorH = proximoColor(ultimoColor);
-        console.log("prox color: " + colorH)
-        // Encontrar el tema con menos subtemas
-        // let temaConMenosSubtemas = temas[0];
-        // for (const tema of temas) {
-        //     if (tema.subtemas.length < temaConMenosSubtemas.subtemas.length) {
-        //         temaConMenosSubtemas = tema;
-        //     }
-        // }
-
-        // Elegir un subtema al azar del tema con menos subtemas
-        // const subtemaAleatorio = temaConMenosSubtemas.subtemas[Math.floor(Math.random() * temaConMenosSubtemas.subtemas.length)];
-
-        let tema = obtenerSubtemaAleatorio(temas, colorH);
+        let tema = encontrarSubtemaAleatorioPorColor(temas, colorH);
+        
         console.log(colorH)
         console.log(tema)
-process.exit(1)
+
         // Crear objeto para el resultado
         let resultado = {
             tema: tema.temaConMasSubtemas,
@@ -112,6 +102,7 @@ process.exit(1)
 
         // Guardar el resultado en un nuevo archivo
         await fs.writeFile('temasConHistoriasV2.json', JSON.stringify(result, null, 2), 'utf8');
+        guardarUltimoColor(colorH);
     } catch (error) {
         console.error("Error al leer o procesar el archivo JSON:", error);
     }
@@ -121,18 +112,18 @@ function encontrarSubtemaAleatorioPorColor(data, color) {
   // Filtrar temas por color
   let temasFiltrados = data.filter(tema => tema.color === color);
   let mainTopic;  
-  // Recoger todos los subtemas del color especificado
+  
   let subtemas = [];
   temasFiltrados.forEach(tema => {
     subtemas.push(...tema.subtemas.filter(subtema => subtema.color === color));
     mainTopic = tema;
   });
-
+  
   // Elegir un subtema aleatorio
   if (subtemas.length > 0) {
     let subtemaAleatorio = subtemas[Math.floor(Math.random() * subtemas.length)];
     return {
-        temaConMasSubtemas: tema.nombre,
+        temaConMasSubtemas: mainTopic.nombre,
         subtemaAleatorio: subtemaAleatorio
     };
   } else {
@@ -214,8 +205,8 @@ async function main(filePath, postNumberBySubTopic, temaSubtema, ultimoColor) {
     console.log("args temas subtema: " + temaSubtema)
     console.log("ultimo color: " + ultimoColor)
 
-    let json = filePath != undefined && temaSubtema == undefined
-    console.log("is: " + json)
+    let json = filePath != undefined && (temaSubtema == undefined || temaSubtema == "")
+    console.log("From json: " + json)
     if(json) {
         await generatePostsWithTextAndImages(postNumberBySubTopic, filePath, temaSubtema, ultimoColor);
     } 
