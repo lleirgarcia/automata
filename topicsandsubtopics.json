@@ -120,10 +120,6 @@
         "color": "verde"
       },
       {
-        "nombre": "Mindfulness y meditación",
-        "color": "verde"
-      },
-      {
         "nombre": "Networking y relaciones",
         "color": "verde"
       },
@@ -388,6 +384,106 @@
       {
         "nombre": "Compromiso y dedicación",
         "color": "naranja"
+      },
+      {
+        "nombre": "Construcción de hábitos positivos",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Desarrollo del liderazgo personal",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Aprendizaje y crecimiento continuo",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Fomento del bienestar emocional",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Encontrar equilibrio en la vida",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Gestión del estrés y la ansiedad",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Fortalecimiento de la resiliencia",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Impulso hacia la acción",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Desarrollo de la creatividad",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Hacer frente a los cambios de vida",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Mantener la disciplina personal",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Cultivar relaciones positivas",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Construcción de confianza interna",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Fomentar la proactividad",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Establecimiento de límites saludables",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Abrazar el cambio y la incertidumbre",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Desarrollo de habilidades para la vida",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Manejo de la crítica y el rechazo",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Exploración del potencial personal",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Cultivo de la autoexpresión",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Fomento del pensamiento positivo",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Desarrollo de la intuición",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Gestión del tiempo y la productividad",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Fomento de la perseverancia",
+        "color": "naranja"
+      },
+      {
+        "nombre": "Aceptación y crecimiento personal",
+        "color": "naranja"
       }
     ]
   },
@@ -488,10 +584,6 @@
         "color": "azul"
       },
       {
-        "nombre": "Educación sobre criptomonedas",
-        "color": "azul"
-      },
-      {
         "nombre": "Optimización de gastos",
         "color": "azul"
       },
@@ -553,6 +645,86 @@
       },
       {
         "nombre": "Finanzas comportamentales",
+        "color": "azul"
+      },
+      {
+        "nombre": "Análisis de inversiones",
+        "color": "azul"
+      },
+      {
+        "nombre": "Estrategias de diversificación financiera",
+        "color": "azul"
+      },
+      {
+        "nombre": "Planificación para la compra de vivienda",
+        "color": "azul"
+      },
+      {
+        "nombre": "Finanzas personales para jóvenes",
+        "color": "azul"
+      },
+      {
+        "nombre": "Estrategias para reducir gastos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Inversión en mercados emergentes",
+        "color": "azul"
+      },
+      {
+        "nombre": "Planificación de herencias y legados",
+        "color": "azul"
+      },
+      {
+        "nombre": "Educación sobre seguros de vida",
+        "color": "azul"
+      },
+      {
+        "nombre": "Gestión de la liquidez personal",
+        "color": "azul"
+      },
+      {
+        "nombre": "Comprensión del mercado de bonos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Estrategias para la jubilación anticipada",
+        "color": "azul"
+      },
+      {
+        "nombre": "Inversiones en energías renovables",
+        "color": "azul"
+      },
+      {
+        "nombre": "Fundamentos de la banca de inversión",
+        "color": "azul"
+      },
+      {
+        "nombre": "Estrategias para la independencia financiera",
+        "color": "azul"
+      },
+      {
+        "nombre": "Educación sobre préstamos estudiantiles",
+        "color": "azul"
+      },
+      {
+        "nombre": "Inversión en metales preciosos",
+        "color": "azul"
+      },
+      {
+        "nombre": "Construcción de un fondo de emergencia",
+        "color": "azul"
+      },
+      {
+        "nombre": "Estrategias para maximizar los beneficios de pensiones",
+        "color": "azul"
+      },
+      {
+        "nombre": "Conocimientos sobre finanzas internacionales",
+        "color": "azul"
+      },
+      {
+        "nombre": "Tendencias en tecnología financiera (FinTech)",
         "color": "azul"
       }
     ]

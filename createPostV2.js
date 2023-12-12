@@ -68,19 +68,20 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
         var result = [];
 
         // Encontrar el tema con menos subtemas
-        let temaConMenosSubtemas = temas[0];
-        for (const tema of temas) {
-            if (tema.subtemas.length < temaConMenosSubtemas.subtemas.length) {
-                temaConMenosSubtemas = tema;
-            }
-        }
+        // let temaConMenosSubtemas = temas[0];
+        // for (const tema of temas) {
+        //     if (tema.subtemas.length < temaConMenosSubtemas.subtemas.length) {
+        //         temaConMenosSubtemas = tema;
+        //     }
+        // }
 
         // Elegir un subtema al azar del tema con menos subtemas
-        const subtemaAleatorio = temaConMenosSubtemas.subtemas[Math.floor(Math.random() * temaConMenosSubtemas.subtemas.length)];
+        // const subtemaAleatorio = temaConMenosSubtemas.subtemas[Math.floor(Math.random() * temaConMenosSubtemas.subtemas.length)];
 
+        let tema = obtenerSubtemaAleatorio(temas);
         // Crear objeto para el resultado
         let resultado = {
-            tema: temaConMenosSubtemas.nombre,
+            tema: tema.temaConMasSubtemas,
             subtemas: [
                 {
                     posts: []
@@ -91,17 +92,17 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
         // Generar publicaciones para el subtema seleccionado
         for (let i = 0; i < qttPosts; i++) {
             let idrandom = generateRandomString(10);
-            console.log("tema: " + temaConMenosSubtemas.nombre)
-            console.log("subtema: " + subtemaAleatorio.nombre)
-            const story = await generateStory(temaConMenosSubtemas.nombre, subtemaAleatorio.nombre);
+            console.log("tema: " + tema.temaConMasSubtemas)
+            console.log("subtema: " + tema.subtemaAleatorio.nombre)
+            const story = await generateStory(tema.temaConMasSubtemas, tema.subtemaAleatorio.nombre);
             const post = {
                 id: idrandom, // Genera un ID aleatorio para el post
                 content: story
             };
-            generateImagesFromPrompt(idrandom, story, temaConMenosSubtemas.color);
+            generateImagesFromPrompt(idrandom, story, tema.subtemaAleatorio.nombre.color);
             resultado.subtemas[0].posts.push(post);
         }
-        removeSubtema(temas, temaConMenosSubtemas.nombre, subtemaAleatorio.nombre)
+        removeSubtema(temas, tema.temaConMasSubtemas, tema.subtemaAleatorio.nombre)
         result.push(resultado)
 
         // Guardar el resultado en un nuevo archivo
@@ -110,6 +111,24 @@ async function generatePostsWithTextAndImages(qttPosts, filePath) {
         console.error("Error al leer o procesar el archivo JSON:", error);
     }
 }
+
+function obtenerSubtemaAleatorio(data) {
+    // Encontrar el tema con la mayor cantidad de subtemas
+    let temaConMasSubtemas = data.reduce((prev, current) => 
+        (prev.subtemas.length > current.subtemas.length) ? prev : current
+    );
+
+    // Elegir un subtema aleatorio de ese tema
+    let subtemas = temaConMasSubtemas.subtemas;
+    let subtemaAleatorio = subtemas[Math.floor(Math.random() * subtemas.length)];
+
+    return {
+        temaConMasSubtemas: temaConMasSubtemas.nombre,
+        subtemaAleatorio: subtemaAleatorio
+    };
+}
+
+
 
 
 function removeSubtema(dataJson, temaPrincipal, subtemaNombre) {

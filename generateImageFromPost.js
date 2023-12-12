@@ -18,7 +18,7 @@ function prepareTextForAPrompt(post) {
   let currentPost;
 
   if(!isHumanInImage)
-    removeSteps = `${removeSteps} Ademas, intenta que en la historia no salga un humano, persona o ser vivo. Necesito una historia abstracta que tenga que ver con el post.`; 
+    removeSteps = `${removeSteps} Ademas, intenta que en la historia no salga un humano, persona o ser vivo. Necesito una historia abstracta que tenga que ver con el post. Intenta tambien no poner mayusculas en palabras que ya estan dentro de una frase, dejalas en minusculas a no ser que sea necesario. Ademas, intenta que las imagenes esten libres de letras o carteles. Si sale un humano, que sea europeo.`; 
 
   if(post)
       currentPost = post
