@@ -59,11 +59,3 @@ jobs:
 
     - name: Run Node.js script with additional text
       run: node createPostV2.js topicsandsubtopics.json 1 "$ADDITIONAL_TEXT" "${{steps.read_color.outputs.color}}" && node instagramUpload.js
-      
-    - name: Commit State File Changes
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add ./ultimo_color.txt # Reemplaza con la ruta real al archivo de estado
-        git commit -m "Actualizar archivo de estado con el último color publicado"
-        git push
