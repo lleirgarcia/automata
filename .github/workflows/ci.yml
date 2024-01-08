@@ -3,9 +3,9 @@ name: Issue Title Contains Trigger and Node.js Script Execution
 on:
   issues:
     types: [opened, edited]
-  workflow_dispatch: # Permite ejecutar el flujo de trabajo manualmente
-  schedule:
-    - cron: '0 */6 * * *' # Se ejecuta cada 6 horas
+  # workflow_dispatch: # Permite ejecutar el flujo de trabajo manualmente
+  # schedule:
+  #   - cron: '0 */6 * * *' # Se ejecuta cada 6 horas
 
 jobs:
   check-issue-and-run-script:
@@ -58,4 +58,4 @@ jobs:
       run: echo "::set-output name=color::$(cat ./ultimo_color.txt)"
 
     - name: Run Node.js script with additional text
-      run: node createPostV2.js topicsandsubtopics.json 1 "$ADDITIONAL_TEXT" "${{steps.read_color.outputs.color}}" && node instagramUpload.js
+      run: node createPostV2.js topicsandsubtopics.json ls1 "$ADDITIONAL_TEXT" "${{steps.read_color.outputs.color}}" && node instagramUpload.js
