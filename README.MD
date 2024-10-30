@@ -1,5 +1,6 @@
 # A U T O M A T A
 
+Automata uses Open AI API to autogenerate X posts per day in Instagram.
 
 # next steps (todo list)
 - [x] generar posts para Instagram desde 1 tema generico y un sub tema.
